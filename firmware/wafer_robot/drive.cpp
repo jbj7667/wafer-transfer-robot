@@ -7,6 +7,9 @@
 #define IN3_BIT _BV(PC5)
 #define IN4_BIT _BV(PC4)
 
+static volatile bool braking = false;
+static uint32_t brakeT0 = 0;
+
 void driveInit() {
   pinMode(PIN_ENA, OUTPUT);
   pinMode(PIN_ENB, OUTPUT);
@@ -35,5 +38,21 @@ void driveSet(int16_t left, int16_t right) {
   PORTC = c;  // 양쪽 모두 0이면 IN=LOW,LOW -> 프리런 정지
   OCR5C = clampDuty(left);
   OCR5B = clampDuty(right);
+  braking = false;
   SREG = sreg;
+}
+
+void driveBrake() {
+  uint8_t sreg = SREG;
+  cli();
+  PORTC |= IN1_BIT | IN2_BIT | IN3_BIT | IN4_BIT;  // 단락 제동
+  OCR5C = 255;
+  OCR5B = 255;
+  braking = true;
+  SREG = sreg;
+  brakeT0 = millis();
+}
+
+void driveBrakeUpdate() {
+  if (braking && millis() - brakeT0 >= BRAKE_MS) driveSet(0, 0);
 }

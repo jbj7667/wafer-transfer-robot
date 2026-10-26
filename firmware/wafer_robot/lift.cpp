@@ -72,9 +72,10 @@ void liftTick1ms() {
   if (remain < 0) remain = -remain;
   // 정지에 필요한 스텝 v^2/(2a) 보다 남은 거리가 짧으면 감속
   uint32_t v = rate;
-  uint32_t stopSteps = (v * v) / (2UL * LIFT_ACCEL);
-  uint16_t dv = LIFT_ACCEL / 1000;  // 1ms당 속도 변화
-  if (!stopOnLowLimit && (uint32_t)remain <= stopSteps) v = v > dv + LIFT_RATE_MIN ? v - dv : LIFT_RATE_MIN;
+  // 나눗셈 없이 비교: remain <= v^2/(2a)  <=>  remain*2a <= v^2
+  constexpr uint32_t TWO_A = 2UL * LIFT_ACCEL;
+  constexpr uint16_t dv = LIFT_ACCEL / 1000;  // 1ms당 속도 변화
+  if (!stopOnLowLimit && (uint32_t)remain * TWO_A <= v * v) v = v > dv + LIFT_RATE_MIN ? v - dv : LIFT_RATE_MIN;
   else if (v + dv <= rateCap) v += dv;
   else v = rateCap;
   uint8_t sreg = SREG;
@@ -149,6 +150,16 @@ void liftUpdate() {
     default:
       break;
   }
+}
+
+void liftStop() {
+  uint8_t sreg = SREG;
+  cli();
+  running = false;
+  TIMSK3 &= ~_BV(OCIE3A);
+  targetSteps = posSteps;
+  SREG = sreg;
+  if (home != H_DONE) home = H_FAIL;  // 원점 잡기 중이었다면 실패 처리(버튼으로 재원점)
 }
 
 void liftMoveToMm(float mm) {

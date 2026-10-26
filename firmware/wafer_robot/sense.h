@@ -16,6 +16,8 @@ enum class DriveMode : uint8_t { Manual, Follow };
 void followStart(uint8_t baseSpeed);  // PD 라인추종 시작(Follow 모드)
 void followSpeed(uint8_t baseSpeed);  // Follow 중 기본 속도만 변경(D항 유지)
 void manualDrive(int16_t left, int16_t right);  // Follow 해제 후 고정 출력
+void manualBrake();                             // Follow 해제 후 능동 제동(drive.h)
+bool neckPressed();                             // 넥 접촉 스위치(디바운스 후 눌림)
 
 bool startButtonTake();               // 눌림 엣지 1회
 enum class LedMode : uint8_t { Off, Blink4Hz, On };

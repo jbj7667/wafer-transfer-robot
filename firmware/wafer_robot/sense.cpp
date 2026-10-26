@@ -14,6 +14,8 @@ static volatile int8_t lastErr = 0, lastSide = 0;
 
 static volatile uint8_t btnCount = 0;
 static volatile bool btnPressed = false, btnEdge = false;
+static volatile uint8_t neckCount = 0;
+static volatile bool neckDown = false;
 static volatile LedMode ledMode = LedMode::Off;
 
 // 패턴 -> 오차: 왼쪽 센서만 흑 = 로봇이 선의 오른쪽 = 왼쪽으로 돌아야 함 = 음수
@@ -69,6 +71,10 @@ ISR(TIMER1_COMPA_vect) {
   if (pressed && !btnPressed) btnEdge = true;
   btnPressed = pressed;
 
+  // 넥 접촉 스위치 D25 = PA3, 눌림 = LOW, NECK_DEBOUNCE_MS 연속이면 확정
+  if (!(pa & _BV(PA3))) { if (neckCount < NECK_DEBOUNCE_MS) neckCount++; } else neckCount = 0;
+  neckDown = neckCount >= NECK_DEBOUNCE_MS;
+
   // 외관 LED (D40 = PG1)
   static uint16_t ledDiv = 0;
   static bool ledPhase = false;
@@ -114,6 +120,15 @@ void manualDrive(int16_t left, int16_t right) {
   interrupts();
   driveSet(left, right);
 }
+
+void manualBrake() {
+  noInterrupts();
+  mode = DriveMode::Manual;
+  interrupts();
+  driveBrake();
+}
+
+bool neckPressed() { return neckDown; }
 
 bool startButtonTake() {
   noInterrupts();
@@ -179,6 +194,7 @@ void senseInit() {
   pinMode(PIN_LINE_C, INPUT);
   pinMode(PIN_LINE_R, INPUT);
   pinMode(PIN_START_BTN, INPUT_PULLUP);
+  pinMode(PIN_NECK_SW, INPUT_PULLUP);
   pinMode(PIN_LED, OUTPUT);
   pinMode(PIN_TRIG, OUTPUT);
   pinMode(PIN_ECHO, INPUT);

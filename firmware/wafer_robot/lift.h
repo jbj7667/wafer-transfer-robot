@@ -12,5 +12,6 @@ bool liftBusy();                 // 이동 또는 원점 잡기 중
 bool liftHomed();
 bool liftFault();                // 원점 미검출, 상단 리밋 충돌
 float liftPosMm();
+void liftStop();                 // 즉시 정지(고장 시). 위치 카운트는 유지
 void liftUpdate();
 void liftTick1ms();
