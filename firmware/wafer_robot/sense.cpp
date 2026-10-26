@@ -104,6 +104,8 @@ uint16_t lineLostMs() {
   return v;
 }
 
+int8_t lineLastSide() { return lastSide; }
+
 void followStart(uint8_t baseSpeed) {
   noInterrupts();
   followBase = baseSpeed;

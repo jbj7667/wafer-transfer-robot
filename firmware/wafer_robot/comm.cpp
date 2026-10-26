@@ -63,3 +63,15 @@ void commSendState(const char *name) {
   Serial.print("STATE ");
   Serial.println(name);
 }
+
+void commSendTest(const char *item, const char *result) {
+  BLE.print("T,");
+  BLE.print(item);
+  BLE.print(',');
+  BLE.print(result);
+  BLE.print('\n');
+  Serial.print("TEST ");
+  Serial.print(item);
+  Serial.print(' ');
+  Serial.println(result);
+}

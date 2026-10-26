@@ -101,3 +101,11 @@ HM-10 기본 UUID 근거(검색 확인):
 - `V` 와 `S` 송신은 `Serial3.print(...); Serial3.print('\n');` 로 한 줄씩. 주행 중 `Serial3` 쓰기가 제어 루프를 막지 않도록 `Serial3.availableForWrite()` 로 확인하거나, 줄 길이가 짧으므로(최대 15바이트) 500 ms 주기에서는 9600 bps 에서 약 16 ms 이므로 문제 없다(블로킹이 아니라 송신 링버퍼에 들어감).
 - 수신은 `while (Serial3.available()) { char c = Serial3.read(); ... }` 로 글자 단위 처리, `\r` `\n` 무시.
 - `S` 는 IDLE 에서만 받는다. 이미 RUN 이면 무시해서 중복 출발을 막는다.
+
+## 추가: 자가 점검 메시지 (펌웨어 SELFTEST 상태)
+
+| 방향 | 형식 | 예 | 앱 처리 |
+|---|---|---|---|
+| 로봇 → 앱 | `T,<항목>,<결과>` 항목 = `IR`·`LINE`·`VBAT`, 결과 = `OK`·`WARN`·`FAIL` | `T,IR,OK` | 상태 라벨 아래 작은 라벨에 항목별로 표시(OK 초록, WARN 주황, FAIL 빨강). 모르는 첫 글자의 줄은 무시하는 기존 규칙과 호환 |
+
+상태 순서는 `HOMING → SELFTEST → IDLE`이다. START 버튼 활성 조건(연결됨 AND 상태=IDLE)은 바뀌지 않는다.

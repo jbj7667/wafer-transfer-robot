@@ -45,7 +45,11 @@ constexpr float MM_PER_MS_CREEP = 0.08f;// [측정]
 constexpr uint16_t SENSOR_AHEAD_MM = 25;       // 바퀴축 ~ 라인센서 중심
 constexpr uint16_t FORK_POCKET_AHEAD_MM = 60;  // 라인센서 ~ 포켓 중심 (참고용, 코드에서는 사용하지 않음)
 constexpr uint16_t EVENT_MIN_MS = 25;   // 3채널 모두 흑이 이 시간 이상이면 이벤트
-constexpr uint16_t LINE_LOST_MS = 600;  // 3채널 모두 백이 지속되면 이탈
+constexpr uint16_t LINE_LOST_MS = 600;  // 3채널 모두 백이 지속되면 이탈 -> 선 탐색(SEARCH) 시작
+// 선 이탈 복구(SEARCH): 정지 후 마지막으로 본 쪽으로 SEARCH_MAX_MS, 안 보이면 반대쪽으로 2배까지 저속 회전
+constexpr uint16_t SEARCH_MAX_MS = 700;   // [측정] 한쪽 탐색 최대 시간
+constexpr uint8_t SPEED_SEARCH = 90;      // 탐색 회전 PWM (SPEED_PIVOT보다 느리게)
+constexpr uint16_t SEARCH_BRAKE_MS = 80;  // 탐색 시작·방향 전환 전 정지 대기
 constexpr uint16_t CROSS_PASS_MM = 40;  // 교차점 직진 통과 거리
 constexpr uint16_t RETREAT_MM = 100;    // 집기/놓기 후 회전 전 후퇴 거리 (포크 끝 반경 150 < 85+100-25)
 
@@ -89,6 +93,9 @@ constexpr uint16_t IR_WAFER_ADC_MIN = 300; // 이보다 크면(가까우면) CD 
 constexpr float VBAT_SCALE = 5.0f / 1023.0f * 3.0f; // 분압 1/3
 constexpr float VBAT_CAL_CTRL = 1.000f, VBAT_CAL_MOTOR = 1.000f; // [측정] 멀티미터 대비 보정
 constexpr float VBAT_MOTOR_LOW = 6.6f;    // NiMH 6셀 경고 기준
+
+// ---------------- 자가 점검(SELFTEST) ----------------
+constexpr uint16_t SELFTEST_LINE_MS = 200;  // 이 시간 동안 3채널 모두 백이면 LINE 경고(진행은 계속)
 
 // ---------------- 시간 ----------------
 constexpr uint16_t LED_HALF_PERIOD_MS = 125; // 125ms 켬/끔 = 초당 4회 점멸

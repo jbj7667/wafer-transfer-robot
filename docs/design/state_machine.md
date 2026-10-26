@@ -31,7 +31,8 @@
 | 상태 | LED(추가기능 ⑤) | 진입 조건 | 이탈 조건 |
 |---|---|---|---|
 | BOOT | — | 전원 On | setup() 끝 -> HOMING |
-| HOMING | 4Hz | 부팅, IDLE에서 BLE 'H', ARRIVED/FAULT에서 버튼 | 원점 완료 -> IDLE, 승강 오류 -> FAULT |
+| HOMING | 4Hz | 부팅, IDLE에서 BLE 'H', ARRIVED/FAULT에서 버튼 | 원점 완료 -> SELFTEST, 승강 오류 -> FAULT |
+| SELFTEST | 4Hz | 원점·대기 높이 도달 | IR 비어 있음·라인 응답·전압 확인 후 -> IDLE, 포크에 물체 -> FAULT |
 | IDLE | 4Hz | 원점 완료 | 버튼 또는 BLE 'S' -> RUN (미션 리셋, 타이머 시작) |
 | RUN | Off | IDLE에서 출발 | 미션 종료 -> ARRIVED, 오류 -> FAULT |
 | ARRIVED | 4Hz | 계획의 마지막 동작 완료 | 버튼 -> HOMING |
@@ -166,7 +167,9 @@
 
 | 상황 | 감지 | 처리 | 이후 |
 |---|---|---|---|
-| 선 이탈 | 3채널 백 `LINE_LOST_MS`(600 ms) 초과 | fault("line lost") | FAULT, 정지 |
+| 선 이탈 | 3채널 백 `LINE_LOST_MS`(600 ms) 초과 | SEARCH: 제동 → 마지막으로 본 쪽 회전(최대 `SEARCH_MAX_MS`) → 제동 → 반대쪽 회전(최대 2배). 어느 채널이든 흑이면 추종 재개 | 실패 시 fault("line lost") |
+| 자가 점검 IR | SELFTEST에서 포크 위 IR이 "있음" | `T,IR,FAIL` 송신, fault("fork not empty") | FAULT |
+| 자가 점검 라인·전압 | SELFTEST에서 라인 3채널 백 200 ms / 모터팩 저전압 | `T,LINE,WARN` / `T,VBAT,WARN` 송신 | 경고만, IDLE 진입 |
 | 추종 타임아웃 | FOLLOW 15 s | fault("follow timeout") | FAULT |
 | 회전 타임아웃 | TURN 4 s | fault("turn timeout") | FAULT |
 | 승강 오류 | liftFault (리밋 미도달 등) | fault("lift") / fault("homing") | FAULT |
@@ -176,5 +179,5 @@
 | 전압 저하 | 모터팩 < `VBAT_MOTOR_LOW` (6.6 V) | 앱 경고 (3점) | 대회 전 팩 교체 |
 | Mega 리셋 | 전원 강하/노이즈 | 재부팅 -> HOMING | 배선 점검 (wiring.md 7절) |
 
-- FAULT 후에는 사람이 로봇을 시작 위치로 옮기고 버튼을 눌러 재원점 -> IDLE로 돌아간다. 대회 중 사람 개입은 규정상 실격 사유가 될 수 있으므로 FAULT 복구는 시험·연습 전용이다.
-- 예선에서 선 이탈이 일어나면 `SEARCH`(마지막 부호 방향 탐색) 동작을 추가하는 것이 PLAN 6.3절의 설계안이며, 현재 코드는 FAULT 정지다. 후속 개선 항목.
+- FAULT 후에는 로봇을 출발 위치로 옮기고 버튼을 눌러 재원점 → SELFTEST → IDLE → 다시 출발한다. 이것이 규정의 **재출발**이다(경기당 2회까지 허용, 추가 시간·벌점 없음, 3번째 요청은 0점, 재출발 시 웨이퍼 재배치·이전 득점 무효).
+- 상위 상태에 **SELFTEST**가 HOMING과 IDLE 사이에 추가되었다(추가기능 ④ 보강: 원점 잡기 + 센서 확인). LED는 4 Hz 점멸을 유지한다. 결과는 `T,<IR|LINE|VBAT>,<OK|WARN|FAIL>` 줄로 앱에 보낸다 — 앱은 상태 라벨 옆에 표시하면 된다(`app/protocol.md` 확장 항목).

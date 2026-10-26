@@ -11,6 +11,8 @@ bool lineEventTake();
 void lineEventClear();
 // 3채널 모두 백이 지속된 시간(ms)
 uint16_t lineLostMs();
+// 마지막으로 선을 본 쪽: +1 = 오른쪽(오른쪽으로 돌아야 선), -1 = 왼쪽, 0 = 아직 모름
+int8_t lineLastSide();
 
 enum class DriveMode : uint8_t { Manual, Follow };
 void followStart(uint8_t baseSpeed);  // PD 라인추종 시작(Follow 모드)

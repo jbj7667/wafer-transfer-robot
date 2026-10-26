@@ -27,7 +27,7 @@ struct Action {
 };
 
 // ---------------- 상위 상태 ----------------
-enum class Top : uint8_t { Boot, Homing, Idle, Run, Arrived, Fault };
+enum class Top : uint8_t { Boot, Homing, SelfTest, Idle, Run, Arrived, Fault };
 static Top top = Top::Boot;
 static uint32_t runStartMs = 0;
 
@@ -35,6 +35,7 @@ static const char *topName(Top t) {
   switch (t) {
     case Top::Boot: return "BOOT";
     case Top::Homing: return "HOMING";
+    case Top::SelfTest: return "SELFTEST";
     case Top::Idle: return "IDLE";
     case Top::Run: return "RUN";
     case Top::Arrived: return "ARRIVED";
@@ -49,6 +50,7 @@ static void setTop(Top t) {
     case Top::Idle:
     case Top::Arrived:
     case Top::Homing:
+    case Top::SelfTest:
       ledSet(LedMode::Blink4Hz);  // 시작·도착 구역: 초당 4회 점멸 (추가기능 5)
       break;
     case Top::Fault:
@@ -74,6 +76,12 @@ static uint32_t actT0 = 0, actDur = 0;
 static bool probeResult = false;
 static uint16_t creepMs[3] = {0, 0, 0};  // 행별 크리프(스위치 눌림까지) 시간. 놓는 쪽 A_CREEP_TIMED가 재사용
 static int8_t pivotDir = 1;              // +1 = 우회전, -1 = 좌회전
+
+// 선 이탈 복구(A_FOLLOW 내부 하위 상태)
+enum SearchPhase : uint8_t { SR_NONE, SR_BRAKE1, SR_PIVOT1, SR_BRAKE2, SR_PIVOT2 };
+static SearchPhase searchPhase = SR_NONE;
+static uint32_t searchT0 = 0;
+static int8_t searchDir = 1;             // 첫 탐색 방향(+1 = 우회전)
 
 static void push(ActType t, int16_t a = 0) {
   if (qLen < Q_SIZE) {
@@ -233,6 +241,7 @@ static void startAction(const Action &x) {
   actT0 = millis();
   switch (x.type) {
     case A_FOLLOW:
+      searchPhase = SR_NONE;
       lineEventClear();
       followStart(SPEED_CRUISE);
       break;
@@ -277,17 +286,73 @@ static void startAction(const Action &x) {
   }
 }
 
+// 선 탐색 회전 출력: 0에서 SPEED_SEARCH까지 램프
+static void searchDrive(int8_t dir, uint32_t el) {
+  int16_t p = el >= PIVOT_RAMP_MS ? SPEED_SEARCH : (int16_t)((uint32_t)SPEED_SEARCH * el / PIVOT_RAMP_MS);
+  manualDrive(dir * p, -dir * p);
+}
+
+// A_FOLLOW 안에서 선 이탈 후 탐색: 정지 -> 마지막 쪽 회전(최대 SEARCH_MAX_MS) -> 정지 -> 반대쪽 회전(최대 2배)
+// 어느 한 채널이라도 흑이면 추종 재개, 끝까지 못 찾으면 고장.
+static void runSearch() {
+  uint32_t el = millis() - searchT0;
+  if ((searchPhase == SR_PIVOT1 || searchPhase == SR_PIVOT2) && lineBits() != 0) {
+    manualBrake();
+    searchPhase = SR_NONE;
+    lineEventClear();
+    followStart(SPEED_SLOW);  // 복귀 직후는 저속으로 수렴
+    Serial.println("SEARCH OK");
+    return;
+  }
+  switch (searchPhase) {
+    case SR_BRAKE1:
+    case SR_BRAKE2:
+      if (el >= SEARCH_BRAKE_MS) {
+        searchPhase = searchPhase == SR_BRAKE1 ? SR_PIVOT1 : SR_PIVOT2;
+        searchT0 = millis();
+        manualDrive(0, 0);
+      }
+      break;
+    case SR_PIVOT1:
+      searchDrive(searchDir, el);
+      if (el >= SEARCH_MAX_MS) {
+        manualBrake();
+        searchPhase = SR_BRAKE2;
+        searchT0 = millis();
+      }
+      break;
+    case SR_PIVOT2:
+      searchDrive(-searchDir, el);
+      if (el >= 2UL * SEARCH_MAX_MS) fault("line lost");
+      break;
+    default:
+      break;
+  }
+}
+
 // true = 끝남
 static bool runAction(const Action &x) {
   uint32_t el = millis() - actT0;
   switch (x.type) {
     case A_FOLLOW:
+      if (searchPhase != SR_NONE) {
+        if (el > 15000) fault("follow timeout");
+        else runSearch();
+        return false;
+      }
       if (x.a == 1) {  // 기둥에 가까워지면 감속(정지선 오버슈트 감소)
         uint16_t d = sonarMm();
         followSpeed(d && d < SONAR_SLOW_MM ? SPEED_SLOW : SPEED_CRUISE);  // followStart는 D항 상태를 지우므로 속도만 갱신
       }
       if (lineEventTake()) { manualBrake(); return true; }
-      if (lineLostMs() > LINE_LOST_MS) fault("line lost");
+      if (lineLostMs() > LINE_LOST_MS) {  // 선 이탈: 정지 후 탐색
+        manualBrake();
+        searchDir = lineLastSide() >= 0 ? 1 : -1;
+        searchPhase = SR_BRAKE1;
+        searchT0 = millis();
+        Serial.println("SEARCH");
+        return false;
+      }
       if (el > 15000) fault("follow timeout");
       return false;
     case A_FWD:
@@ -339,6 +404,34 @@ static bool runAction(const Action &x) {
     default:
       return true;
   }
+}
+
+// ---------------- 자가 점검 (추가기능 F4: 센서로 초기 상태 확인) ----------------
+// 원점·대기 높이 도달 직후 한 번: 포크 위 IR 비어 있음, 라인센서 응답, 모터 전압.
+// 결과는 "T,항목,결과" 줄로 BLE/USB에 보낸다. IR이 비어 있지 않으면 고장.
+static uint32_t selfT0 = 0;
+
+static void selfTestBegin() {
+  setTop(Top::SelfTest);
+  selfT0 = millis();
+  if (irWaferAdc() > IR_WAFER_ADC_MIN) {
+    commSendTest("IR", "FAIL");
+    fault("fork not empty");
+    return;
+  }
+  commSendTest("IR", "OK");
+  commSendTest("VBAT", vbatMotor() > VBAT_MOTOR_LOW ? "OK" : "WARN");
+}
+
+static void selfTestUpdate() {
+  if (lineBits() != 0) {
+    commSendTest("LINE", "OK");
+  } else if (lineLostMs() >= SELFTEST_LINE_MS && millis() - selfT0 >= SELFTEST_LINE_MS) {
+    commSendTest("LINE", "WARN");  // 경고만 하고 계속
+  } else {
+    return;  // 아직 판정 중
+  }
+  setTop(Top::Idle);
 }
 
 static void resetMission() {
@@ -395,8 +488,11 @@ void loop() {
 
   switch (top) {
     case Top::Homing:
-      if (liftHomed() && !liftBusy()) setTop(Top::Idle);
+      if (liftHomed() && !liftBusy()) selfTestBegin();
       else if (liftFault()) fault("homing");
+      break;
+    case Top::SelfTest:
+      selfTestUpdate();
       break;
     case Top::Idle:
       if (startButtonTake() || cmd == Command::Start) {  // 추가기능 1, 2
