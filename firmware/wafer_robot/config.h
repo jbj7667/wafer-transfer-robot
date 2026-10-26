@@ -57,7 +57,12 @@ constexpr uint16_t RETREAT_MM = 100;    // 집기/놓기 후 회전 전 후퇴 �
 constexpr uint16_t PIVOT_RAMP_MS = 300;       // PWM 0 -> SPEED_PIVOT 램프 (CD 미끄러짐 방지, 300ms 이상)
 constexpr uint16_t PIVOT_MIN_MS_90 = 400;     // 회전 시작 직후 현재 선을 무시하는 시간 [측정]
 constexpr uint16_t PIVOT_MIN_MS_180 = 800;    // [측정]
-constexpr uint16_t PIVOT_MIN_MS_PARTIAL = 380;// 상단 행 부분 회전(약 55도) 최소 시간 [측정]
+constexpr uint16_t PIVOT_MS_90_TIMED = 650;  // 상단 행 시간 기반 90도 회전(라인 확인 없음, 램프 포함) [측정]
+
+// 상단 행 교차점 (mechanism.md §3)
+constexpr uint16_t TOP_BACKOFF_MM = 15;       // 이벤트 후 후진 거리 [측정]
+constexpr uint8_t ACQUIRE_BIAS = 25;          // 라인 재획득 편향 전진: 바퀴 PWM = SPEED_SLOW ± 이 값 [측정]
+constexpr uint16_t ACQUIRE_TIMEOUT_MS = 2500; // 이 시간 안에 라인을 못 찾으면 고장
 
 // 능동 제동: 양쪽 IN 모두 HIGH + PWM 255 를 이 시간 유지한 뒤 프리런
 constexpr uint16_t BRAKE_MS = 40;

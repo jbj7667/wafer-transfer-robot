@@ -49,10 +49,11 @@ Timer1 틱 안에서 하는 일: 라인 3채널 샘플(PINA) → 전체 흑 이�
 
 | 동작 | 인자 | 설명 |
 |---|---|---|
-| `A_FOLLOW` | 1 = 기둥 근처 감속 | PD 라인추종, 3채널 흑 이벤트에서 능동 제동 후 종료. 선 이탈 600 ms면 SEARCH(마지막 쪽 `SEARCH_MAX_MS` → 반대쪽 2배) 후 재개, 실패 또는 15 s 초과 시 고장 |
+| `A_FOLLOW` | 1 = 기둥 근처 감속, 2 = 저속(`SPEED_SLOW`, 상단 교차점 접근) | PD 라인추종, 3채널 흑 이벤트에서 능동 제동 후 종료. 선 이탈 600 ms면 SEARCH(마지막 쪽 `SEARCH_MAX_MS` → 반대쪽 2배) 후 재개, 실패 또는 15 s 초과 시 고장 |
 | `A_FWD` | mm (음수 = 후진) | 시간 기반 직진·후퇴(`MM_PER_MS_SLOW`) |
 | `A_TURN` | 목표 방위 | 제자리 회전. `PIVOT_RAMP_MS` 동안 PWM 램프, 최소 시간 후 중앙 채널 흑이면 정지. 180도는 남쪽 경유(W→E 좌, E→W 우) |
-| `A_TURN_PARTIAL` | 목표 방위 (E/W) | 상단 행 교차점 전용. 전진 없이 `PIVOT_MIN_MS_PARTIAL` 이상 돌다 중앙 흑이면 방위 확정, 정지하지 않고 `SPEED_SLOW` 추종으로 이어 감 |
+| `A_TURN_TIMED` | 목표 방위 (E/W) | 상단 행 교차점 전용. 램프 포함 `PIVOT_MS_90_TIMED` 동안 라인 확인 없이 회전 후 제동, 방위 확정 |
+| `A_ACQUIRE` | 목표 방위 (E/W) | 상단 행 전용. 라인(북쪽) 쪽으로 `SPEED_SLOW ± ACQUIRE_BIAS` 편향 전진(W: 오른쪽, E: 왼쪽), 어느 채널이든 흑이면 추종으로 인계. `ACQUIRE_TIMEOUT_MS` 초과 시 고장("acquire"). 상단 행 열: `A_FWD(-TOP_BACKOFF_MM)` → `A_TURN_TIMED` → `A_ACQUIRE` → `A_FOLLOW 1` |
 | `A_LIFT_TO` | mm | 승강 이동 시작(비동기) |
 | `A_LIFT_WAIT` | - | 승강 이동 완료 대기 |
 | `A_CREEP` | - | `SPEED_CREEP` 전진, 넥 스위치 눌림 = 성공(시간을 행별로 기록), `CREEP_TIMEOUT_MS` 또는 초음파 < `CREEP_SONAR_MIN_MM` = 고장 |
@@ -86,7 +87,10 @@ Arduino IDE에서는 `wafer_robot.ino`를 열고 보드 "Arduino Mega or Mega 25
 | `MM_PER_MS_CREEP` | 0.08 | 현재 코드는 직접 쓰지 않음(참고). `SPEED_CREEP` 로 1 s 구동 후 이동 거리 |
 | `PIVOT_MIN_MS_90` | 400 | 교차점 위에서 90도 회전만 시켜 보고, 라인이 센서에 다시 오기 직전 시간으로 설정(램프 300 ms 포함). 너무 짧으면 출발선 자체를 새 선으로 오인 |
 | `PIVOT_MIN_MS_180` | 800 | 위와 같은 방식으로 180도. 바닥 재질별로 확인 |
-| `PIVOT_MIN_MS_PARTIAL` | 380 | 상단 행 부분 회전. 센서 이벤트 지점에서 회전시켜 약 55도에서 멈추는 시간을 모의경기장에서 각도기로 측정. 포크 끝이 경계 밖으로 나가지 않는지 확인 |
+| `PIVOT_MS_90_TIMED` | 650 | 상단 행 시간 기반 90도(램프 300 ms 포함). 상단 교차점에서 후진 후 회전시켜 각도기로 90도가 되는 시간을 모의경기장에서 측정, 5회 평균. 포크 끝이 경계 밖으로 나가지 않는지 확인 |
+| `TOP_BACKOFF_MM` | 15 | 상단 교차점 이벤트 후 후진 거리. 이벤트·제동 후 포크 끝이 경계선 안쪽(약 +5 mm)에 오도록 자로 측정, 10회 반복 |
+| `ACQUIRE_BIAS` | 25 | 회전 후 `A_ACQUIRE`에서 바퀴 PWM 편차(`SPEED_SLOW ± 값`). 약 15도 편향으로 약 90 mm 이내에 라인을 잡는 값을 모의경기장에서 찾는다. 10회 모두 획득 |
+| `ACQUIRE_TIMEOUT_MS` | 2500 | 획득까지 걸린 시간을 로그로 재서 최대값의 2배 이상으로 설정 |
 | `LIFT_HOME_MM` | 155 | 하단 리밋이 눌린 상태에서 포크 윗면 높이를 자로 측정 |
 | `LIFT_STEPS_PER_MM` | 25 | 이론값(T8 리드 8). 100 mm 이동 지령 후 실제 이동량으로 보정 |
 | `LIFT_RATE_MAX`, `LIFT_ACCEL` | 1000, 5000 | 7.2 V에서 탈조 없이 왕복 20회. 탈조(원점 재확인 오차 > 1 mm) 시 낮춘다 |

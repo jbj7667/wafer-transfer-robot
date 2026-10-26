@@ -31,6 +31,16 @@ On a 1 m × 1 m field marked with 19 mm black lines, the robot leaves a start bo
 
 Work in progress — contest on 2026-11-24.
 
+| Done | Next |
+|---|---|
+| Rules analysis, 100-idea mechanism review, final mechanism (`docs/design/mechanism.md`) | Print & assemble v1 |
+| Fusion 360 layout model v1.1 with clearance checks (`cad/`) | Detailed printable parts (rim, conical seat, brackets) |
+| Firmware: timer-interrupt control, mission planner, self-test, compiles clean (`firmware/`) | Hardware tuning of `[측정]` constants |
+| App design + robot emulator (`app/`) | Build the App Inventor app |
+| Rule cross-check (`docs/review/compliance.md`) | Mock contests 11/10, 11/17 |
+
+![Layout model, isometric view with a wafer post at the pick position](cad/model/view_iso.png)
+
 ## License
 
 MIT (see `LICENSE`). Third-party part models in `cad/vendor/` keep their original licenses.

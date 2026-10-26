@@ -19,11 +19,11 @@
 // ---------------- 동작 타입 ----------------
 // (Arduino 자동 프로토타입이 함수 앞에 삽입되므로 Action은 첫 함수보다 위에 정의해야 한다)
 enum ActType : uint8_t {
-  A_FOLLOW, A_FWD, A_TURN, A_TURN_PARTIAL, A_LIFT_TO, A_LIFT_WAIT, A_CREEP, A_CREEP_TIMED, A_PROBE
+  A_FOLLOW, A_FWD, A_TURN, A_TURN_TIMED, A_ACQUIRE, A_LIFT_TO, A_LIFT_WAIT, A_CREEP, A_CREEP_TIMED, A_PROBE
 };
 struct Action {
   ActType type;
-  int16_t a;  // FOLLOW: 1=기둥 근처 감속 / FWD: mm(음수=후진) / TURN·TURN_PARTIAL: 목표 방위 / LIFT_TO: mm
+  int16_t a;  // FOLLOW: 1=기둥 근처 감속, 2=저속 / FWD: mm(음수=후진) / TURN·TURN_TIMED·ACQUIRE: 목표 방위 / LIFT_TO: mm
 };
 
 // ---------------- 상위 상태 ----------------
@@ -102,10 +102,13 @@ static float carry() { return POST_TOP_MM[row] + CARRY_MM; }
 static float clearH() { return POST_TOP_MM[row] + CLEAR_MM; }
 
 // 교차점에서 다른 방위로 회전: 바퀴축을 교차 중심에 맞춘 뒤 회전.
-// 상단 행에서 북쪽으로 도착해 동/서로 돌 때는 전진하지 않고 부분 회전(포크 끝이 경계 밖으로 나가는 것을 방지).
+// 상단 행에서 북쪽으로 도착해 동/서로 돌 때는 전진 대신 후진 + 시간 기반 90도 회전 + 라인 재획득
+// (포크 끝이 경계 밖으로 나가는 것을 방지, mechanism.md §3 상단 행 규칙).
 static void turnAtCrossing(uint8_t h) {
   if (row == 2 && (h == E || h == W)) {
-    push(A_TURN_PARTIAL, h);
+    push(A_FWD, -(int16_t)TOP_BACKOFF_MM);
+    push(A_TURN_TIMED, h);
+    push(A_ACQUIRE, h);
     return;
   }
   push(A_FWD, SENSOR_AHEAD_MM);
@@ -195,7 +198,7 @@ static void planNext() {
     case P_ROW_DONE:
       if (row < 2) {
         turnAtCrossing(N);
-        push(A_FOLLOW, 0);  // 다음 행 교차점
+        push(A_FOLLOW, row == 1 ? 2 : 0);  // 다음 행 교차점 (상단 교차점은 저속 접근)
         row++;
         phase = P_ROW_FIRST;
       } else {
@@ -262,11 +265,16 @@ static void startAction(const Action &x) {
       manualDrive(0, 0);               // 램프 0에서 시작
       break;
     }
-    case A_TURN_PARTIAL:
-      // 북쪽에서 목표(동/서) 쪽으로 약 55도만 돈다
-      actDur = PIVOT_MIN_MS_PARTIAL;
+    case A_TURN_TIMED:
+      // 상단 행: 북쪽에서 목표(동/서)로 시간만으로 90도 (라인 확인 없음)
+      actDur = PIVOT_MS_90_TIMED;
       pivotDir = x.a == W ? -1 : 1;
       manualDrive(0, 0);
+      break;
+    case A_ACQUIRE:
+      // 라인은 출발(북)쪽: W로 돌았으면 오른쪽, E로 돌았으면 왼쪽으로 편향 전진
+      if (x.a == W) manualDrive(SPEED_SLOW + ACQUIRE_BIAS, SPEED_SLOW - ACQUIRE_BIAS);
+      else manualDrive(SPEED_SLOW - ACQUIRE_BIAS, SPEED_SLOW + ACQUIRE_BIAS);
       break;
     case A_LIFT_TO:
       liftMoveToMm(x.a);
@@ -340,6 +348,7 @@ static bool runAction(const Action &x) {
         else runSearch();
         return false;
       }
+      if (x.a == 2 && el < 50) followSpeed(SPEED_SLOW);  // 상단 교차점 저속 접근 (followStart 직후 한 번)
       if (x.a == 1) {  // 기둥에 가까워지면 감속(정지선 오버슈트 감소)
         uint16_t d = sonarMm();
         followSpeed(d && d < SONAR_SLOW_MM ? SPEED_SLOW : SPEED_CRUISE);  // followStart는 D항 상태를 지우므로 속도만 갱신
@@ -367,14 +376,21 @@ static bool runAction(const Action &x) {
       }
       if (el > 4000) fault("turn timeout");
       return false;
-    case A_TURN_PARTIAL:
+    case A_TURN_TIMED:
       pivotDrive(el);
-      if (el >= actDur && (lineBits() & 0b010)) {
+      if (el >= actDur) {
+        manualBrake();
         heading = x.a;
+        return true;
+      }
+      return false;
+    case A_ACQUIRE:
+      if (lineBits() != 0) {
+        lineEventClear();
         followStart(SPEED_SLOW);  // 멈추지 않고 저속 추종으로 이어 가 방향을 수렴시킨다
         return true;
       }
-      if (el > 4000) fault("partial turn timeout");
+      if (el > ACQUIRE_TIMEOUT_MS) fault("acquire");
       return false;
     case A_LIFT_WAIT:
       if (liftFault()) fault("lift");

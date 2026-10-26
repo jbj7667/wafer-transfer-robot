@@ -1,6 +1,6 @@
 # 상태머신·임무 계획 (v1)
 
-근거: `public/firmware/wafer_robot/wafer_robot.ino`(현재 코드), `mechanism.md`(넥 접촉 정지, 상단 행 부분 회전). 펌웨어에 **A_CREEP / A_CREEP_TIMED / A_TURN_PARTIAL**과 넥 접촉 스위치 핀이 추가되는 중이다. 그 부분은 `mechanism.md` 기준으로 기술하며, 핀은 `config.h` 참조.
+근거: `public/firmware/wafer_robot/wafer_robot.ino`(현재 코드), `mechanism.md`(넥 접촉 정지, 상단 행 부분 회전). 펌웨어에 **A_CREEP / A_CREEP_TIMED / A_TURN_TIMED / A_ACQUIRE**와 넥 접촉 스위치 핀이 추가되는 중이다. 그 부분은 `mechanism.md` 기준으로 기술하며, 핀은 `config.h` 참조.
 
 ## 1. 상위 상태
 
@@ -73,7 +73,7 @@
   P_HOME -> P_END -> (큐 비면) ARRIVED
 ```
 
-- 상단 행(row=2)은 `mechanism.md` 3절 규칙을 적용한다: 교차점에서 전진 없이 **TURN_PARTIAL(약 55°, 시간 기반 + 중앙 채널 흑 확인)** 후 저속 라인추종. 상단 행의 180°는 항상 남쪽을 경유(서→동은 좌회전, 동→서는 우회전).
+- 상단 행(row=2)은 `mechanism.md` 3절 규칙을 적용한다: 중단→상단은 저속 추종, 상단 교차점 이벤트 후 **FWD(−TOP_BACKOFF_MM) → TURN_TIMED(시간 기반 90°, 라인 확인 없음) → ACQUIRE(라인 쪽 편향 전진, 채널 흑이면 인계)** 후 저속 라인추종. 상단 행의 180°는 항상 남쪽을 경유(서→동은 좌회전, 동→서는 우회전).
 - 예선 웨이퍼는 왼쪽(1, 3, 5)에 있으므로 FIRST_SIDE = W. 본선도 왼쪽부터 확인한다.
 - 같은 행의 두 기둥 높이는 같으므로 승강 높이 계산은 행 단위 (`POST_TOP_MM[row]`).
 
@@ -81,7 +81,7 @@
 
 | 동작 | 인자 | 종료 조건 | 비고 |
 |---|---|---|---|
-| A_FOLLOW | 0 일반 / 1 기둥 근처 감속 | 3채널 흑 이벤트 (`EVENT_MIN_MS`) | 선 이탈 `LINE_LOST_MS`, 15s 타임아웃 -> FAULT |
+| A_FOLLOW | 0 일반 / 1 기둥 근처 감속 / 2 저속 | 3채널 흑 이벤트 (`EVENT_MIN_MS`) | 선 이탈 `LINE_LOST_MS`, 15s 타임아웃 -> FAULT |
 | A_FWD | mm (음수=후진) | 시간 경과 (`MM_PER_MS_SLOW`) | 교차점 정렬(SENSOR_AHEAD_MM), 교차점 통과 40, 후퇴 |
 | A_TURN | 목표 방위 | 최소 시간 후 중앙 채널 흑 | 4 s 초과 -> FAULT |
 | A_LIFT_TO | 높이 mm | 비동기(바로 반환) | 완료는 A_LIFT_WAIT |
@@ -89,7 +89,8 @@
 | A_PROBE | — | 80 ms 정지 후 IR 판정 | `irWaferAdc() > IR_WAFER_ADC_MIN` |
 | A_CREEP (추가 중) | — | 넥 접촉 스위치 눌림 | 시간 초과 1.5 s, 초음파 거리 하한 보호. **크리프 시간을 기록** |
 | A_CREEP_TIMED (추가 중) | — | 기록한 크리프 시간 경과 | 플레이스 시 사용. 포크가 기둥 위라 넥 스위치는 안 눌림 |
-| A_TURN_PARTIAL (추가 중) | 각도/시간 | 약 55° 시간 후 중앙 채널 흑 확인 | 상단 행 전용 (포크 끝이 경계 밖으로 나가지 않게) |
+| A_TURN_TIMED | 목표 방위 | `PIVOT_MS_90_TIMED` 경과 후 제동 | 상단 행 전용, 라인 확인 없음 |
+| A_ACQUIRE | 목표 방위 | 아무 라인 채널 흑 -> 추종 인계 | 라인 쪽 `SPEED_SLOW ± ACQUIRE_BIAS`, `ACQUIRE_TIMEOUT_MS` 초과 -> FAULT("acquire") |
 
 ### 한 행의 전형적 동작 열 (mechanism.md 4절)
 
@@ -116,7 +117,7 @@
 | 5 | 후퇴, TURN W, FOLLOW | 행 0 교차점 | W | 복귀 |
 | 6 | FWD 60, TURN N, FOLLOW | 중단 교차점 (행 1) | N | 다음 행 |
 | 7~10 | (행 1 반복: 좌 정지선, 교차점, 우 정지선, 교차점) | 4 이벤트 | W | |
-| 11 | FWD 60, TURN N, FOLLOW | 상단 교차점 (행 2) | N | 상단: TURN_PARTIAL 55° 규칙 |
+| 11 | FWD 60, TURN N, FOLLOW | 상단 교차점 (행 2) | N | 상단: FWD -15, TURN_TIMED, ACQUIRE 규칙 |
 | 12~15 | (행 2 반복: 좌 정지선, 교차점, 우 정지선, 교차점) | 4 이벤트 | | 상단은 175 높이 |
 | 16 | FWD 60, TURN S, FOLLOW | 중단 교차점 | S | 복귀 시작 |
 | 17 | FWD 40, FOLLOW | 하단 교차점 | S | |
