@@ -48,7 +48,10 @@ ISR(TIMER1_COMPA_vect) {
   if (b == 0) { if (allWhiteMs < 60000) allWhiteMs++; } else allWhiteMs = 0;
 
   // PD 라인추종, 200Hz
-  if (mode == DriveMode::Follow && (tickCount % 5) == 0) {
+  // (32비트 나눗셈은 ISR에서 수십 us를 먹으므로 8비트 카운터로 분주한다)
+  static uint8_t followDiv = 0;
+  if (++followDiv >= 5) followDiv = 0;
+  if (mode == DriveMode::Follow && followDiv == 0) {
     int8_t e;
     if (b == 0) e = lastSide >= 0 ? 3 : -3;  // 선 이탈: 마지막으로 본 쪽으로 강하게
     else if (b == 0b111 || b == 0b101) e = 0;
@@ -67,8 +70,10 @@ ISR(TIMER1_COMPA_vect) {
   btnPressed = pressed;
 
   // 외관 LED (D40 = PG1)
-  bool on = ledMode == LedMode::On ||
-            (ledMode == LedMode::Blink4Hz && ((tickCount / LED_HALF_PERIOD_MS) & 1) == 0);
+  static uint16_t ledDiv = 0;
+  static bool ledPhase = false;
+  if (++ledDiv >= LED_HALF_PERIOD_MS) { ledDiv = 0; ledPhase = !ledPhase; }
+  bool on = ledMode == LedMode::On || (ledMode == LedMode::Blink4Hz && !ledPhase);
   if (on) PORTG |= _BV(PG1); else PORTG &= ~_BV(PG1);
 
   liftTick1ms();

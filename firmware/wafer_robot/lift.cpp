@@ -25,7 +25,10 @@ static uint32_t homeT0 = 0;
 static void setRate(uint16_t r) {
   if (r < LIFT_RATE_MIN) r = LIFT_RATE_MIN;
   rate = r;
-  OCR3A = (uint16_t)(2000000UL / r) - 1;  // 분주 8 -> 2MHz 기준
+  uint16_t top = (uint16_t)(2000000UL / r) - 1;  // 분주 8 -> 2MHz 기준
+  OCR3A = top;
+  // CTC에서 TCNT가 새 TOP을 이미 넘었으면 비교일치를 놓쳐 65536 카운트(약 33ms) 뒤에야 다음 스텝이 나온다
+  if (TCNT3 >= top) TCNT3 = top - 1;
 }
 
 static void startMove(int32_t target, uint16_t cap, bool untilLowLimit) {
