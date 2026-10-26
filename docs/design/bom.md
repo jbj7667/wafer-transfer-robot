@@ -29,9 +29,9 @@
 
 | # | 품목 (규격) | 단가(원) | 수량 | 소계(원) | 구매처/URL (검색 페이지) | 확정가 |
 |---|---|---:|---:|---:|---|---|
-| 1 | T8 리드스크류 150~200mm (리드 8, 4조) + 황동 플랜지 너트 | 9,000 | 1 | 9,000 | [디바이스마트](https://www.devicemart.co.kr/goods/search?keyword=T8%20%EB%A6%AC%EB%93%9C%EC%8A%A4%ED%81%AC%EB%A5%98) · [11번가](https://search.11st.co.kr/Search.tmall?kwd=T8%20%EB%A6%AC%EB%93%9C%EC%8A%A4%ED%81%AC%EB%A5%98) | |
+| 1 | T8 리드스크류 **100mm** (리드 8, 4조) + 황동 플랜지 너트 — 150 이상은 마스트가 250 초과(`cad/params.md`) | 9,000 | 1 | 9,000 | [디바이스마트](https://www.devicemart.co.kr/goods/search?keyword=T8%20%EB%A6%AC%EB%93%9C%EC%8A%A4%ED%81%AC%EB%A5%98) · [11번가](https://search.11st.co.kr/Search.tmall?kwd=T8%20%EB%A6%AC%EB%93%9C%EC%8A%A4%ED%81%AC%EB%A5%98) | |
 | 2 | 커플러 5→8mm (스테퍼축 Ø5 ↔ T8) | 2,000 | 1 | 2,000 | [쿠팡](https://www.coupang.com/np/search?q=%EC%BB%A4%ED%94%8C%EB%9F%AC%205mm%208mm) | |
-| 3 | Ø8 리니어 샤프트 150mm | 3,000 | 2 | 6,000 | [아이씨뱅큐](https://www.icbanq.com/search?keyword=%EB%A6%AC%EB%8B%88%EC%96%B4%20%EC%83%A4%ED%94%84%ED%8A%B8%208mm) | |
+| 3 | Ø8 리니어 샤프트 **190mm** (200 구매 후 절단 가능) | 3,000 | 2 | 6,000 | [아이씨뱅큐](https://www.icbanq.com/search?keyword=%EB%A6%AC%EB%8B%88%EC%96%B4%20%EC%83%A4%ED%94%84%ED%8A%B8%208mm) | |
 | 4 | LM8UU 리니어 부싱 | 1,000 | 2 | 2,000 | [엘레파츠](https://www.eleparts.co.kr/goods/search?search_text=LM8UU) | |
 | 5 | KW11 레버 마이크로 스위치 (하한 원점·상한·예비) | 700 | 3 | 2,100 | [디바이스마트](https://www.devicemart.co.kr/goods/search?keyword=KW11) | |
 | 6 | 저작동력 롱레버 마이크로 스위치 (넥 접촉용, 레버 길이 연장 가능형) | 1,500 | 1 | 1,500 | [디바이스마트](https://www.devicemart.co.kr/goods/search?keyword=%EB%A1%B1%EB%A0%88%EB%B2%84%20%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%20%EC%8A%A4%EC%9C%84%EC%B9%98) | |
