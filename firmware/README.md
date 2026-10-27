@@ -10,7 +10,7 @@
 | `config.h` | 핀 배치, 튜닝 상수. `[측정]` 표시는 실측 필요 |
 | `drive.*` | L298 차동 구동. Timer5 PWM 직접 구동, `driveBrake()` 능동 제동(IN 둘 다 HIGH + PWM 255, `BRAKE_MS` 후 프리런) |
 | `lift.*` | 승강 스테퍼(DRV8834). Timer3 스텝 펄스 ISR, 1 kHz 틱에서 사다리꼴 가감속, 하단 리밋 원점 잡기, `liftStop()` |
-| `sense.*` | Timer1 1 kHz 틱: 라인센서·이벤트, PD 추종(200 Hz), 출발 버튼·넥 스위치 디바운스, LED. 초음파(INT5), 상향 IR |
+| `sense.*` | Timer1 1 kHz 틱: 라인센서·이벤트, PD 추종(200 Hz), 출발 버튼·넥 스위치 디바운스, LED. 상향 IR, (선택) 초음파(INT5, `SONAR_ENABLED`) |
 | `comm.*` | HM-10 BLE(Serial3) 줄 단위 프로토콜, 배터리 전압 텔레메트리, USB 디버그(115200) |
 
 ## 2. 타이머 / 인터럽트
@@ -20,7 +20,7 @@
 | Timer1 | 1 kHz 제어 틱 (`TIMER1_COMPA`) | CTC, 분주 64, OCR1A=249 |
 | Timer3 | 승강 스텝 펄스 (`TIMER3_COMPA`) | CTC, 분주 8(2 MHz), 이동 중에만 인터럽트 허용 |
 | Timer5 | 주행 PWM D44(OC5C)/D45(OC5B) | Fast PWM 8bit, 분주 8, 약 7.8 kHz |
-| INT5 (D3) | 초음파 ECHO 상승·하강 | CHANGE |
+| INT5 (D3) | (선택) 초음파 ECHO 상승·하강 | CHANGE. `SONAR_ENABLED=true`일 때만 등록 |
 | Timer0 | Arduino `millis()` | 기본값 |
 
 Timer1 틱 안에서 하는 일: 라인 3채널 샘플(PINA) → 전체 흑 이벤트 래치 → PD 추종(5 ms마다) → 출발 버튼(30 ms)·넥 스위치(`NECK_DEBOUNCE_MS`) 디바운스 → LED → `liftTick1ms()`.
@@ -35,8 +35,8 @@ Timer1 틱 안에서 하는 일: 라인 3채널 샘플(PINA) → 전체 흑 이�
 | D36 / D37 / D38 | 승강 STEP / DIR / SLEEP | PC1 / PC0 / PD7 |
 | D22 / D24 / D26 | 라인센서 L / C / R | PA0 / PA2 / PA4, 흑 = LOW |
 | D25 | 넥 접촉 레버 스위치 | PA3, 내부 풀업, 눌림 = LOW |
-| D23 | 초음파 TRIG | |
-| D3 | 초음파 ECHO | INT5 |
+| D23 | (선택) 초음파 TRIG | 기본 제작에서는 미장착, `SONAR_ENABLED=false` |
+| D3 | (선택) 초음파 ECHO | INT5, 기본 제작에서는 미장착 |
 | A0 | 상향 IR (GP2Y0A41SK) | |
 | A2 / A3 | 제어 / 모터 배터리 전압 | 분압 20k/10k |
 | D2 | 승강 하단 리밋(원점) | 내부 풀업, 눌림 = LOW |
@@ -56,7 +56,7 @@ Timer1 틱 안에서 하는 일: 라인 3채널 샘플(PINA) → 전체 흑 이�
 | `A_ACQUIRE` | 목표 방위 (E/W) | 상단 행 전용. 라인(북쪽) 쪽으로 `SPEED_SLOW ± ACQUIRE_BIAS` 편향 전진(W: 오른쪽, E: 왼쪽), 어느 채널이든 흑이면 추종으로 인계. `ACQUIRE_TIMEOUT_MS` 초과 시 고장("acquire"). 상단 행 열: `A_FWD(-TOP_BACKOFF_MM)` → `A_TURN_TIMED` → `A_ACQUIRE` → `A_FOLLOW 1` |
 | `A_LIFT_TO` | mm | 승강 이동 시작(비동기) |
 | `A_LIFT_WAIT` | - | 승강 이동 완료 대기 |
-| `A_CREEP` | - | `SPEED_CREEP` 전진, 넥 스위치 눌림 = 성공(시간을 행별로 기록), `CREEP_TIMEOUT_MS` 또는 초음파 < `CREEP_SONAR_MIN_MM` = 고장 |
+| `A_CREEP` | - | `SPEED_CREEP` 전진, 넥 스위치 눌림 = 성공(시간을 행별로 기록), `CREEP_TIMEOUT_MS` = 고장 (`SONAR_ENABLED=true`이면 초음파 < `CREEP_SONAR_MIN_MM`도 고장) |
 | `A_CREEP_TIMED` | - | 기록한 크리프 시간만큼 `SPEED_CREEP` 전진(놓는 쪽, 스위치 미사용) |
 | `A_PROBE` | - | 상향 IR로 웨이퍼 유무 판정 |
 
@@ -98,8 +98,8 @@ Arduino IDE에서는 `wafer_robot.ino`를 열고 보드 "Arduino Mega or Mega 25
 | `UNDER_WAFER_MM`, `CARRY_MM`, `CLEAR_MM` | 10, 12, 5 | CD 밑면과 포크 간격을 자로 확인. 아래 높이에서 포크가 CD 밑면에 닿지 않고, 운반 높이에서 CD가 기둥에서 완전히 떠야 함 |
 | `LIFT_PARK_MM` | 160 | 주행 대기 높이. 전고 245 이하 확인 |
 | `IR_WAFER_ADC_MIN` | 300 | 상향 IR을 CD 있음 / 없음 각각 20회 읽어 두 분포 중간값으로 설정 |
-| `SONAR_SLOW_MM` | 150 | 정지선 직전 오버슈트가 최소가 되는 감속 시작 거리. 정지선 이벤트 위치 편차(mm)를 10회 측정해 비교 |
-| `CREEP_SONAR_MIN_MM` | 20 | 초음파는 차체 앞면에서 30 mm 뒤에 매립(mechanism.md) → 정상 접촉 시 약 35 mm. 넥 스위치가 눌린 상태의 실측값보다 10 mm 이상 작게 설정 |
+| `SONAR_SLOW_MM` | 150 | `SONAR_ENABLED=true`일 때만(현재 코드는 미사용, 예약). 정지선 직전 오버슈트가 최소가 되는 감속 시작 거리. 정지선 이벤트 위치 편차(mm)를 10회 측정해 비교 |
+| `CREEP_SONAR_MIN_MM` | 20 | `SONAR_ENABLED=true`일 때만. 초음파는 차체 앞면에서 30 mm 뒤에 매립(mechanism.md) → 정상 접촉 시 약 35 mm. 넥 스위치가 눌린 상태의 실측값보다 10 mm 이상 작게 설정 |
 | `CREEP_TIMEOUT_MS` | 1500 | 정지선에서 접촉까지 실제 크리프 시간을 10회 재서 2배 이내로 |
 | `SPEED_CREEP` | 85 | 넥 스위치 작동력과 베이스 이동량: 접촉 시 베이스 이동 3 mm 이하가 되는 최저 속도 |
 | `VBAT_CAL_CTRL`, `VBAT_CAL_MOTOR` | 1.0 | 멀티미터로 실제 전압을 재고 (실측 / 표시) 비율 |

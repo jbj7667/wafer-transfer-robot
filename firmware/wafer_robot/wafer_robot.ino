@@ -349,10 +349,7 @@ static bool runAction(const Action &x) {
         return false;
       }
       if (x.a == 2 && el < 50) followSpeed(SPEED_SLOW);  // 상단 교차점 저속 접근 (followStart 직후 한 번)
-      if (x.a == 1) {  // 기둥에 가까워지면 감속(정지선 오버슈트 감소)
-        uint16_t d = sonarMm();
-        followSpeed(d && d < SONAR_SLOW_MM ? SPEED_SLOW : SPEED_CRUISE);  // followStart는 D항 상태를 지우므로 속도만 갱신
-      }
+      if (x.a == 1) followSpeed(SPEED_SLOW);  // 정지선 접근: 교차 통과 후 정지선까지 전 구간 저속(초음파 불필요)
       if (lineEventTake()) { manualBrake(); return true; }
       if (lineLostMs() > LINE_LOST_MS) {  // 선 이탈: 정지 후 탐색
         manualBrake();
@@ -403,8 +400,7 @@ static bool runAction(const Action &x) {
         Serial.println(el);
         return true;
       }
-      uint16_t d = sonarMm();
-      if (d && d < CREEP_SONAR_MIN_MM) fault("creep sonar");
+      if (SONAR_ENABLED && sonarMm() && sonarMm() < CREEP_SONAR_MIN_MM) fault("creep sonar");
       else if (el > CREEP_TIMEOUT_MS) fault("creep timeout");
       return false;
     }
@@ -497,7 +493,7 @@ void setup() {
 
 void loop() {
   driveBrakeUpdate();
-  sonarUpdate();
+  if (SONAR_ENABLED) sonarUpdate();
   liftUpdate();
   commTelemetry();
   Command cmd = commPoll();

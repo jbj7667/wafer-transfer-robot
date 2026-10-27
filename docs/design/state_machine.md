@@ -81,13 +81,13 @@
 
 | 동작 | 인자 | 종료 조건 | 비고 |
 |---|---|---|---|
-| A_FOLLOW | 0 일반 / 1 기둥 근처 감속 / 2 저속 | 3채널 흑 이벤트 (`EVENT_MIN_MS`) | 선 이탈 `LINE_LOST_MS`, 15s 타임아웃 -> FAULT |
+| A_FOLLOW | 0 일반 / 1 정지선 접근(교차 통과 후 전 구간 `SPEED_SLOW`) / 2 상단 행 저속 | 3채널 흑 이벤트 (`EVENT_MIN_MS`) | 선 이탈 `LINE_LOST_MS`, 15s 타임아웃 -> FAULT |
 | A_FWD | mm (음수=후진) | 시간 경과 (`MM_PER_MS_SLOW`) | 교차점 정렬(SENSOR_AHEAD_MM), 교차점 통과 40, 후퇴 |
 | A_TURN | 목표 방위 | 최소 시간 후 중앙 채널 흑 | 4 s 초과 -> FAULT |
 | A_LIFT_TO | 높이 mm | 비동기(바로 반환) | 완료는 A_LIFT_WAIT |
 | A_LIFT_WAIT | — | 승강 이동 끝 | 승강 오류 -> FAULT |
 | A_PROBE | — | 80 ms 정지 후 IR 판정 | `irWaferAdc() > IR_WAFER_ADC_MIN` |
-| A_CREEP (추가 중) | — | 넥 접촉 스위치 눌림 | 시간 초과 1.5 s, 초음파 거리 하한 보호. **크리프 시간을 기록** |
+| A_CREEP (추가 중) | — | 넥 접촉 스위치 눌림 | 시간 초과 1.5 s로 보호 (초음파 거리 하한은 `SONAR_ENABLED=true`일 때만). **크리프 시간을 기록** |
 | A_CREEP_TIMED (추가 중) | — | 기록한 크리프 시간 경과 | 플레이스 시 사용. 포크가 기둥 위라 넥 스위치는 안 눌림 |
 | A_TURN_TIMED | 목표 방위 | `PIVOT_MS_90_TIMED` 경과 후 제동 | 상단 행 전용, 라인 확인 없음 |
 | A_ACQUIRE | 목표 방위 | 아무 라인 채널 흑 -> 추종 인계 | 라인 쪽 `SPEED_SLOW ± ACQUIRE_BIAS`, `ACQUIRE_TIMEOUT_MS` 초과 -> FAULT("acquire") |
@@ -161,7 +161,7 @@
 | INT2 (D19) | 엣지 | 출발 버튼 | |
 | INT3 (D18) | 엣지 | 상한 리밋 (과주행 보호) | |
 | INT4 (D2) | 엣지 | 하한 리밋 (원점) | |
-| INT5 (D3) | 엣지 | 초음파 ECHO 측정 | |
+| INT5 (D3) | 엣지 | (선택) 초음파 ECHO 측정 | `SONAR_ENABLED=true`일 때만 등록 |
 | 넥 접촉 스위치 | config.h 참조 | 크리프 중 폴링 또는 PCINT | 핀은 펌웨어에서 확정 |
 
 ## 8. 실패 처리
@@ -176,7 +176,7 @@
 | 승강 오류 | liftFault (리밋 미도달 등) | fault("lift") / fault("homing") | FAULT |
 | 전체 시간 초과 | RUN_TIME_LIMIT_MS (150 s) | fault("time") | FAULT |
 | 크리프 시간 초과 (추가 중) | 1.5 s 넥 스위치 미접촉 | 정지 후 PROBE(CD 없음 처리) 또는 FAULT | 모의경기장에서 정책 확정 |
-| 초음파 거리 하한 (추가 중) | 하단 원기둥과 `APPROACH_STOP_MM` 이하 | 크리프 정지 | 베이스 밀림 방지 |
+| 초음파 거리 하한 (선택, `SONAR_ENABLED=true`일 때만) | 하단 원기둥과 `APPROACH_STOP_MM` 이하 | 크리프 정지 | 베이스 밀림 방지 |
 | 전압 저하 | 모터팩 < `VBAT_MOTOR_LOW` (6.6 V) | 앱 경고 (3점) | 대회 전 팩 교체 |
 | Mega 리셋 | 전원 강하/노이즈 | 재부팅 -> HOMING | 배선 점검 (wiring.md 7절) |
 

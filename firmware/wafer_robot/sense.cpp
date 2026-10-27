@@ -166,6 +166,7 @@ static void echoIsr() {
 }
 
 void sonarUpdate() {
+  if (!SONAR_ENABLED) return;
   if (echoDone) {
     noInterrupts();
     uint16_t us = echoUs;
@@ -198,9 +199,11 @@ void senseInit() {
   pinMode(PIN_START_BTN, INPUT_PULLUP);
   pinMode(PIN_NECK_SW, INPUT_PULLUP);
   pinMode(PIN_LED, OUTPUT);
-  pinMode(PIN_TRIG, OUTPUT);
-  pinMode(PIN_ECHO, INPUT);
-  attachInterrupt(digitalPinToInterrupt(PIN_ECHO), echoIsr, CHANGE);
+  if (SONAR_ENABLED) {  // 선택 부품: 기본 제작에서는 핀·ISR 모두 사용 안 함
+    pinMode(PIN_TRIG, OUTPUT);
+    pinMode(PIN_ECHO, INPUT);
+    attachInterrupt(digitalPinToInterrupt(PIN_ECHO), echoIsr, CHANGE);
+  }
   // Timer1: CTC(WGM 0100), 분주 64, OCR1A 249 -> 16MHz/64/250 = 1kHz
   TCCR1A = 0;
   TCCR1B = _BV(WGM12) | _BV(CS11) | _BV(CS10);

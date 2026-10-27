@@ -9,7 +9,7 @@
 | t01 | SPEED_*, BRAKE_MS 적정성(모터 기동 PWM, 제동 느낌) |
 | t02 | 센서 높이/기울기/전원 선택, `EVENT_MIN_MS`·`LINE_LOST_MS` 근거, `MM_PER_MS_*`(속도 입력 시 진입각 보조) |
 | t03 | `LIFT_STEPS_PER_MM`(눈금자 실측), `LIFT_RATE_*`·`LIFT_ACCEL` 탈조 여부, `HOME_*`, `LIFT_HOME_MM`(원점에서 포크 윗면 높이를 자로 [측정]) |
-| t04 | `CREEP_SONAR_MIN_MM`, `SONAR_SLOW_MM` |
+| t04 | (선택) `CREEP_SONAR_MIN_MM`, `SONAR_SLOW_MM` — 소나는 기본 구성에서 제외(`SONAR_ENABLED=false`), 장착할 때만 시험 |
 | t05 | `IR_WAFER_ADC_MIN` |
 | t06 | HM-10 연결·이름·통신 (상수 없음) |
 | t07 | `VBAT_CAL_CTRL`, `VBAT_CAL_MOTOR`, `VBAT_MOTOR_LOW` 점검 |

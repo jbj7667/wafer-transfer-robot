@@ -87,3 +87,16 @@ EXPORT P08_stepper_brkt P08_stepper_brkt.stl bbox_print=[13.8, 64.0, 40.0]
 INTERF(no P11_high) dz=0 n=1 [('P09_mast_lower_R', 'P07_sonar_mount', 0.747)]
 INTERF(no P11_high) dz=35 n=1 [('P09_mast_lower_R', 'P07_sonar_mount', 0.747)]
 INTERF(no P11_high) dz=57 n=1 [('P09_mast_lower_R', 'P07_sonar_mount', 0.747)]
+P10 v1.1d bodies=1 vol=25.86cm3 min=[0.0, -38.0, 232.0] max=[30.0, 38.0, 245.0]
+P10 clamps bodies=1 vol=25.20cm3 min=[0.0, -38.0, 232.0] max=[30.0, 38.0, 245.0]
+P10 v1.1d rebuilt: seat D22.1x7 Z232-239, roof 6, rod bores D8.2 Z232-241, slit+M3 along Y at X28 Z236.5 w/ nut slot from +X; roof hole D5.5 for stub; P11_limit_high deleted
+P07 v1.1d bodies=1 vol=6.37cm3 min=[20.0, -81.5, 77.0] max=[38.0, -34.5, 100.0]
+P07 v1.1d: hanging bracket, sonar centre Y shifted -46 -> -57 (rod Y-30 X15 collides with inner transducer otherwise)
+EXPORT P07_sonar_mount P07_sonar_mount.stl bbox_print=[18.0, 47.0, 23.0]
+EXPORT P10_mast_upper P10_mast_upper.stl bbox_print=[30.0, 76.0, 13.0]
+moved P11_limit_high.stl to optional/
+INTERF v1.1d dz=0 fork_top_body=157.0 carriage_top=160.0 gapToP10=71.98 n=0 []
+INTERF v1.1d dz=35 fork_top_body=192.0 carriage_top=195.0 gapToP10=36.98 n=0 []
+INTERF v1.1d dz=57 fork_top_body=214.0 carriage_top=217.0 gapToP10=14.98 n=0 []
+INTERF v1.1d dz=72 fork_top_body=229.0 carriage_top=232.0 gapToP10=-0.02 n=0 []
+screenshots regenerated

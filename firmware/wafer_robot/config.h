@@ -17,7 +17,10 @@ constexpr uint8_t PIN_SLEEP = 38; // PD7, HIGH = 동작
 // 라인센서 L/C/R: D22/D24/D26 = PA0/PA2/PA4 (흑 = LOW)
 constexpr uint8_t PIN_LINE_L = 22, PIN_LINE_C = 24, PIN_LINE_R = 26;
 
-// 초음파: TRIG 일반 핀, ECHO는 외부 인터럽트(INT5)
+// 초음파(선택 부품): TRIG 일반 핀, ECHO는 외부 인터럽트(INT5)
+// 2026-10-27 결정: 설치 가능한 유일한 위치에서는 Ø50/Ø100 웨이퍼 베이스를 겨냥할 수 없어 기본 제작에서 제외.
+// 나중에 볼트로 추가할 수 있게 코드만 남기며, false 이면 센서 코드·ISR이 모두 빠진다.
+constexpr bool SONAR_ENABLED = false;
 constexpr uint8_t PIN_TRIG = 23;
 constexpr uint8_t PIN_ECHO = 3;
 
@@ -67,11 +70,11 @@ constexpr uint16_t ACQUIRE_TIMEOUT_MS = 2500; // 이 시간 안에 라인을 못
 // 능동 제동: 양쪽 IN 모두 HIGH + PWM 255 를 이 시간 유지한 뒤 프리런
 constexpr uint16_t BRAKE_MS = 40;
 
-// ---------------- 넥 접촉 크리프 / 초음파 ----------------
+// ---------------- 넥 접촉 크리프 / 초음파(SONAR_ENABLED=true일 때만 사용하는 값 포함) ----------------
 constexpr uint16_t CREEP_TIMEOUT_MS = 1500;   // 이 시간 안에 넥 스위치가 안 눌리면 고장
-constexpr uint16_t CREEP_SONAR_MIN_MM = 20;   // 초음파는 차체 앞면에서 30mm 뒤로 매립 → 정상 접촉 시 약 35mm. 이보다 가까우면 고장 [측정]
+constexpr uint16_t CREEP_SONAR_MIN_MM = 20;   // SONAR_ENABLED=true일 때만. 초음파는 차체 앞면에서 30mm 뒤로 매립 → 정상 접촉 시 약 35mm. 이보다 가까우면 고장 [측정]
 constexpr uint8_t NECK_DEBOUNCE_MS = 8;       // 넥 스위치 연속 눌림 확정 시간
-constexpr uint16_t SONAR_SLOW_MM = 150;       // 기둥 접근 감속 시작 거리 [측정]
+constexpr uint16_t SONAR_SLOW_MM = 150;       // (현재 미사용, 선택 부품용 예약) 기둥 접근 감속 시작 거리 [측정]
 
 // ---------------- 승강 ----------------
 // 높이 기준 = 포크 윗면 지면고(mm). 원점(하단 리밋)의 높이는 기구 확정 후 측정.
