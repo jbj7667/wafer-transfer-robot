@@ -1,0 +1,4 @@
+No anonymous source found. Download manually after GrabCAD login:
+https://grabcad.com/library/lm393-infrared-line-tracking-sensor-module-1  (LM393 IR line tracking module, STEP - check if 1ch)
+https://grabcad.com/library/tcrt5000-8  (TCRT5000 sensor element, STEP) - for building a 66x24 3ch board yourself
+https://grabcad.com/library/elegoo-smart-robot-car-v3-0-1  (ELEGOO car V3 assembly incl. 3ch line tracker, STEP)

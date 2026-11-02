@@ -1,0 +1,13 @@
+2026-11-02 10주차 진행 상황 발표 영상 (build_20261102.py)
+실행: python -I tools\video\build_20261102.py   (ffmpeg 경로는 스크립트 상단 FFDIR, 약 5~8분)
+입력: 촬영\ (mp4 1 + avi 2, 1536x1080 avi는 블러 배경으로 1920x1080에 맞춤),
+      Downloads\10주차_진행상황보고\사진\ (4장, 켄번스 3.75s),
+      frames\20261029\*.jpg (왼쪽 800x450 크롭), public\cad\assembly\renders\ (build_anim.mp4/.srt, lift_anim.gif, exploded.png)
+출력(Downloads\10주차_진행상황보고\영상\):
+  final_20261102_progress.mp4  1080p30 H.264 무음, 자막 미번인
+  final_20261102_progress.srt  별도 자막
+  progress_embed.mp4           PPT 내장용: 한글 자막 번인(맑은 고딕), 1280x720, 약 1 Mbps, 25MB 이하
+  work\                        임시 클립(지워도 됨)
+구성: 표지5 | 타임랩스 10x3 | 실측 사진 3.75x4 | 출력 12+12+7.1+2.1 | 조립 시뮬 56 + 승강 gif 8 + 분해도 4 | 끝 카드 6
+수정: 구간/길이/문구는 스크립트의 TL, PH, vclip 호출과 add(...) 자막 목록. 자막은 SRT 수정 후
+      work\p.srt 로 복사해 마지막 subtitles 명령만 다시 실행하면 번인본 재생성.

@@ -1,0 +1,846 @@
+[
+ {
+  "source": "contaxt/강좌 Q&A/01. [RE] 설계용 솔리드웍스 관련 질문/[RE] 설계용 솔리드웍스 관련 질문.txt",
+  "category": "official_qna",
+  "type": ".txt",
+  "bytes": 1865,
+  "chars": 938,
+  "images": 0,
+  "text": "sources/contaxt/강좌 Q&A/01. [RE] 설계용 솔리드웍스 관련 질문/[RE] 설계용 솔리드웍스 관련 질문.txt.md"
+ },
+ {
+  "source": "contaxt/강좌 Q&A/02. 설계용 솔리드웍스 관련 질문/설계용 솔리드웍스 관련 질문.txt",
+  "category": "official_qna",
+  "type": ".txt",
+  "bytes": 210,
+  "chars": 104,
+  "images": 0,
+  "text": "sources/contaxt/강좌 Q&A/02. 설계용 솔리드웍스 관련 질문/설계용 솔리드웍스 관련 질문.txt.md"
+ },
+ {
+  "source": "contaxt/강좌 Q&A/03. 부품 도면 제공에 관해서/부품 도면 제공에 관해서.txt",
+  "category": "official_qna",
+  "type": ".txt",
+  "bytes": 303,
+  "chars": 145,
+  "images": 0,
+  "text": "sources/contaxt/강좌 Q&A/03. 부품 도면 제공에 관해서/부품 도면 제공에 관해서.txt.md"
+ },
+ {
+  "source": "contaxt/강좌 Q&A/03. 부품 도면 제공에 관해서/첨부 자료/구매품.png",
+  "category": "official_qna",
+  "type": ".png",
+  "bytes": 128276,
+  "chars": 0,
+  "images": 0,
+  "note": "비텍스트(이미지 등) — 수동 확인"
+ },
+ {
+  "source": "contaxt/강좌 Q&A/05. 대회 규정 및 제작 재료 관련 문의/대회 규정 및 제작 재료 관련 문의.txt",
+  "category": "official_qna",
+  "type": ".txt",
+  "bytes": 1328,
+  "chars": 599,
+  "images": 0,
+  "text": "sources/contaxt/강좌 Q&A/05. 대회 규정 및 제작 재료 관련 문의/대회 규정 및 제작 재료 관련 문의.txt.md"
+ },
+ {
+  "source": "contaxt/강좌 Q&A/06. 대회 규정 관련 문의드립니다/대회 규정 관련 문의드립니다.txt",
+  "category": "official_qna",
+  "type": ".txt",
+  "bytes": 688,
+  "chars": 318,
+  "images": 0,
+  "text": "sources/contaxt/강좌 Q&A/06. 대회 규정 관련 문의드립니다/대회 규정 관련 문의드립니다.txt.md"
+ },
+ {
+  "source": "contaxt/강좌 Q&A/07. 마분지 관련/마분지 관련.txt",
+  "category": "official_qna",
+  "type": ".txt",
+  "bytes": 341,
+  "chars": 171,
+  "images": 0,
+  "text": "sources/contaxt/강좌 Q&A/07. 마분지 관련/마분지 관련.txt.md"
+ },
+ {
+  "source": "contaxt/강좌 Q&A/08. 대여가능 부품 관련 문의/대여가능 부품 관련 문의.txt",
+  "category": "official_qna",
+  "type": ".txt",
+  "bytes": 1305,
+  "chars": 561,
+  "images": 0,
+  "text": "sources/contaxt/강좌 Q&A/08. 대여가능 부품 관련 문의/대여가능 부품 관련 문의.txt.md"
+ },
+ {
+  "source": "contaxt/강좌 Q&A/10. 스테퍼 모터 드라이버 지급 관련 문의/스테퍼 모터 드라이버 지급 관련 문의.txt",
+  "category": "official_qna",
+  "type": ".txt",
+  "bytes": 822,
+  "chars": 404,
+  "images": 0,
+  "text": "sources/contaxt/강좌 Q&A/10. 스테퍼 모터 드라이버 지급 관련 문의/스테퍼 모터 드라이버 지급 관련 문의.txt.md"
+ },
+ {
+  "source": "contaxt/강좌 Q&A/_게시판 목록 (1-1 페이지).txt",
+  "category": "official_qna",
+  "type": ".txt",
+  "bytes": 1911,
+  "chars": 1057,
+  "images": 0,
+  "text": "sources/contaxt/강좌 Q&A/_게시판 목록 (1-1 페이지).txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/01. 모의 경기장 설치 안내/모의 경기장 설치 안내.txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 539,
+  "chars": 247,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/01. 모의 경기장 설치 안내/모의 경기장 설치 안내.txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/02. 아크릴 레이저 및 3D 프린터 가공 운영 기준 (10월 6일 최종 업데이트)/아크릴 레이저 및 3D 프린터 가공 운영 기준 (10월 6일 최종 업데이트).txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 1942,
+  "chars": 881,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/02. 아크릴 레이저 및 3D 프린터 가공 운영 기준 (10월 6일 최종 업데이트)/아크릴 레이저 및 3D 프린터 가공 운영 기준 (10월 6일 최종 업데이트).txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/03. 추가 기능 관련 FAQ (10월 13일 업데이트)/추가 기능 관련 FAQ (10월 13일 업데이트).txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 1348,
+  "chars": 608,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/03. 추가 기능 관련 FAQ (10월 13일 업데이트)/추가 기능 관련 FAQ (10월 13일 업데이트).txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/04. 멘토링 프로그램 진행 관련/멘토링 프로그램 진행 관련.txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 820,
+  "chars": 392,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/04. 멘토링 프로그램 진행 관련/멘토링 프로그램 진행 관련.txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/04. 멘토링 프로그램 진행 관련/첨부 자료/2026년 창의과제(캡스톤디자인) 멘토링 진행방법.pdf",
+  "category": "official_notice",
+  "type": ".pdf",
+  "bytes": 44527,
+  "chars": 740,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/04. 멘토링 프로그램 진행 관련/첨부 자료/2026년 창의과제(캡스톤디자인) 멘토링 진행방법.pdf.md"
+ },
+ {
+  "source": "contaxt/공지사항/04. 멘토링 프로그램 진행 관련/첨부 자료/2026년 창의과제(캡스톤디자인) 산업체 멘토링-멘티일지_서식.hwp",
+  "category": "official_notice",
+  "type": ".hwp",
+  "bytes": 60416,
+  "chars": 743,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/04. 멘토링 프로그램 진행 관련/첨부 자료/2026년 창의과제(캡스톤디자인) 산업체 멘토링-멘티일지_서식.hwp.md"
+ },
+ {
+  "source": "contaxt/공지사항/05. 라인 트래킹(트레이싱) 센서를 잘 사용하려면/라인 트래킹(트레이싱) 센서를 잘 사용하려면.txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 1007,
+  "chars": 463,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/05. 라인 트래킹(트레이싱) 센서를 잘 사용하려면/라인 트래킹(트레이싱) 센서를 잘 사용하려면.txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/05. 라인 트래킹(트레이싱) 센서를 잘 사용하려면/첨부 자료/SEN200620_라인센서_대화정리.pdf",
+  "category": "official_notice",
+  "type": ".pdf",
+  "bytes": 177407,
+  "chars": 6896,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/05. 라인 트래킹(트레이싱) 센서를 잘 사용하려면/첨부 자료/SEN200620_라인센서_대화정리.pdf.md"
+ },
+ {
+  "source": "contaxt/공지사항/06. 3D 프린터 활용 안내/3D 프린터 활용 안내.txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 1444,
+  "chars": 752,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/06. 3D 프린터 활용 안내/3D 프린터 활용 안내.txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/06. 3D 프린터 활용 안내/첨부 자료/3D프린터 사용신청서_.hwp",
+  "category": "official_notice",
+  "type": ".hwp",
+  "bytes": 39936,
+  "chars": 491,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/06. 3D 프린터 활용 안내/첨부 자료/3D프린터 사용신청서_.hwp.md"
+ },
+ {
+  "source": "contaxt/공지사항/07. 9월 15일 창의과제 안전교육 및 앱프로그래밍 교육 안내/9월 15일 창의과제 안전교육 및 앱프로그래밍 교육 안내.txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 955,
+  "chars": 491,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/07. 9월 15일 창의과제 안전교육 및 앱프로그래밍 교육 안내/9월 15일 창의과제 안전교육 및 앱프로그래밍 교육 안내.txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/07. 9월 15일 창의과제 안전교육 및 앱프로그래밍 교육 안내/첨부 자료/HM-10_TEST.zip",
+  "category": "official_notice",
+  "type": ".zip",
+  "bytes": 207627,
+  "chars": 1864,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/07. 9월 15일 창의과제 안전교육 및 앱프로그래밍 교육 안내/첨부 자료/HM-10_TEST.zip.md"
+ },
+ {
+  "source": "contaxt/공지사항/08. 9월 8일 수업 안내/9월 8일 수업 안내.txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 830,
+  "chars": 432,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/08. 9월 8일 수업 안내/9월 8일 수업 안내.txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/레이저 가공 및 부품 대여 (양식 포함).txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 1603,
+  "chars": 781,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/레이저 가공 및 부품 대여 (양식 포함).txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/(붙임1) 가공실 공지사항(2026.03.20).hwp",
+  "category": "official_notice",
+  "type": ".hwp",
+  "bytes": 90624,
+  "chars": 3814,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/(붙임1) 가공실 공지사항(2026.03.20).hwp.md"
+ },
+ {
+  "source": "contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/(붙임2) 레이저 가공 도면 작성방법.pdf",
+  "category": "official_notice",
+  "type": ".pdf",
+  "bytes": 169781,
+  "chars": 987,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/(붙임2) 레이저 가공 도면 작성방법.pdf.md"
+ },
+ {
+  "source": "contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/(붙임3) 레이저 가공기 사용 신청서.hwp",
+  "category": "official_notice",
+  "type": ".hwp",
+  "bytes": 86016,
+  "chars": 274,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/(붙임3) 레이저 가공기 사용 신청서.hwp.md"
+ },
+ {
+  "source": "contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/(붙임4) 볼트너트와셔_260320.pdf",
+  "category": "official_notice",
+  "type": ".pdf",
+  "bytes": 26634,
+  "chars": 415,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/(붙임4) 볼트너트와셔_260320.pdf.md"
+ },
+ {
+  "source": "contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/(붙임5)2026학년도 부품 대여신청서 양식 (1).hwp",
+  "category": "official_notice",
+  "type": ".hwp",
+  "bytes": 47616,
+  "chars": 463,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/(붙임5)2026학년도 부품 대여신청서 양식 (1).hwp.md"
+ },
+ {
+  "source": "contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/(붙임6) 학부대여가능_부품목록(2025.12.23) (2).xlsx",
+  "category": "official_notice",
+  "type": ".xlsx",
+  "bytes": 24472,
+  "chars": 9549,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/(붙임6) 학부대여가능_부품목록(2025.12.23) (2).xlsx.md"
+ },
+ {
+  "source": "contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/2026 가공실 예약현황--.hwp",
+  "category": "official_notice",
+  "type": ".hwp",
+  "bytes": 182784,
+  "chars": 231,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/09. 레이저 가공 및 부품 대여 (양식 포함)/첨부 자료/2026 가공실 예약현황--.hwp.md"
+ },
+ {
+  "source": "contaxt/공지사항/10. 회로 및 프로그램 관련 FAQ/회로 및 프로그램 관련 FAQ.txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 1588,
+  "chars": 688,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/10. 회로 및 프로그램 관련 FAQ/회로 및 프로그램 관련 FAQ.txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/11. 보고서 작성에 필요한 시스템구성도 등 각종 Diagram 예시/보고서 작성에 필요한 시스템구성도 등 각종 Diagram 예시.txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 382,
+  "chars": 208,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/11. 보고서 작성에 필요한 시스템구성도 등 각종 Diagram 예시/보고서 작성에 필요한 시스템구성도 등 각종 Diagram 예시.txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/11. 보고서 작성에 필요한 시스템구성도 등 각종 Diagram 예시/첨부 자료/Diagrams.pdf",
+  "category": "official_notice",
+  "type": ".pdf",
+  "bytes": 2126082,
+  "chars": 2337,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/11. 보고서 작성에 필요한 시스템구성도 등 각종 Diagram 예시/첨부 자료/Diagrams.pdf.md"
+ },
+ {
+  "source": "contaxt/공지사항/12. 지급품 수령 안내, 팀별 사물함 배정 결과 (8-31 업데이트)/지급품 수령 안내, 팀별 사물함 배정 결과 (8-31 업데이트).txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 1320,
+  "chars": 696,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/12. 지급품 수령 안내, 팀별 사물함 배정 결과 (8-31 업데이트)/지급품 수령 안내, 팀별 사물함 배정 결과 (8-31 업데이트).txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/13. 로봇 기구 설계 및 제작 관련 FAQ (9-2 업데이트)/로봇 기구 설계 및 제작 관련 FAQ (9-2 업데이트).txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 1653,
+  "chars": 727,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/13. 로봇 기구 설계 및 제작 관련 FAQ (9-2 업데이트)/로봇 기구 설계 및 제작 관련 FAQ (9-2 업데이트).txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/14. 주요 부품 사이즈 안내, 배선도 안내/주요 부품 사이즈 안내, 배선도 안내.txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 434,
+  "chars": 214,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/14. 주요 부품 사이즈 안내, 배선도 안내/주요 부품 사이즈 안내, 배선도 안내.txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/14. 주요 부품 사이즈 안내, 배선도 안내/첨부 자료/로봇자동화_프로젝트교과목_배선도안내.pptx",
+  "category": "official_notice",
+  "type": ".pptx",
+  "bytes": 49335,
+  "chars": 490,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/14. 주요 부품 사이즈 안내, 배선도 안내/첨부 자료/로봇자동화_프로젝트교과목_배선도안내.pptx.md"
+ },
+ {
+  "source": "contaxt/공지사항/14. 주요 부품 사이즈 안내, 배선도 안내/첨부 자료/로봇자동화_프로젝트교과목_주요부품사이즈안내.pptx",
+  "category": "official_notice",
+  "type": ".pptx",
+  "bytes": 3777228,
+  "chars": 2126,
+  "images": 24,
+  "text": "sources/contaxt/공지사항/14. 주요 부품 사이즈 안내, 배선도 안내/첨부 자료/로봇자동화_프로젝트교과목_주요부품사이즈안내.pptx.md",
+  "extracted_images": 24
+ },
+ {
+  "source": "contaxt/공지사항/15. 지도교수 배정 결과 안내, 팀명 및 팀내 역할 입력 안내 (~8-31)/지도교수 배정 결과 안내, 팀명 및 팀내 역할 입력 안내 (~8-31).txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 2195,
+  "chars": 1141,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/15. 지도교수 배정 결과 안내, 팀명 및 팀내 역할 입력 안내 (~8-31)/지도교수 배정 결과 안내, 팀명 및 팀내 역할 입력 안내 (~8-31).txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/15. 지도교수 배정 결과 안내, 팀명 및 팀내 역할 입력 안내 (~8-31)/첨부 자료/2026창의과제_팀구성_확정전.xlsx",
+  "category": "official_notice",
+  "type": ".xlsx",
+  "bytes": 12905,
+  "chars": 1805,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/15. 지도교수 배정 결과 안내, 팀명 및 팀내 역할 입력 안내 (~8-31)/첨부 자료/2026창의과제_팀구성_확정전.xlsx.md"
+ },
+ {
+  "source": "contaxt/공지사항/16. 2주차 제안서 자료 작성 안내/2주차 제안서 자료 작성 안내.txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 569,
+  "chars": 275,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/16. 2주차 제안서 자료 작성 안내/2주차 제안서 자료 작성 안내.txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/17. 주차별 진행 일정 안내/주차별 진행 일정 안내.txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 258,
+  "chars": 128,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/17. 주차별 진행 일정 안내/주차별 진행 일정 안내.txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/17. 주차별 진행 일정 안내/첨부 자료/2026창의과제_주차별진행일정(안).hwpx",
+  "category": "official_notice",
+  "type": ".hwpx",
+  "bytes": 82891,
+  "chars": 1443,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/17. 주차별 진행 일정 안내/첨부 자료/2026창의과제_주차별진행일정(안).hwpx.md"
+ },
+ {
+  "source": "contaxt/공지사항/18. 창의과제 운영계획 (경진대회 규정, 성적 평가 방법 등) (9-1 업데이트)/창의과제 운영계획 (경진대회 규정, 성적 평가 방법 등) (9-1 업데이트).txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 897,
+  "chars": 477,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/18. 창의과제 운영계획 (경진대회 규정, 성적 평가 방법 등) (9-1 업데이트)/창의과제 운영계획 (경진대회 규정, 성적 평가 방법 등) (9-1 업데이트).txt.md"
+ },
+ {
+  "source": "contaxt/공지사항/18. 창의과제 운영계획 (경진대회 규정, 성적 평가 방법 등) (9-1 업데이트)/첨부 자료/2026창의과제_운영계획-20260901.pdf",
+  "category": "official_notice",
+  "type": ".pdf",
+  "bytes": 1920704,
+  "chars": 7553,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/18. 창의과제 운영계획 (경진대회 규정, 성적 평가 방법 등) (9-1 업데이트)/첨부 자료/2026창의과제_운영계획-20260901.pdf.md"
+ },
+ {
+  "source": "contaxt/공지사항/19. 필수과목 '창의과제' 8월 25일 (화) 전체 오리엔테이션 안내/필수과목 '창의과제' 8월 25일 (화) 전체 오리엔테이션 안내.txt",
+  "category": "official_notice",
+  "type": ".txt",
+  "bytes": 1148,
+  "chars": 536,
+  "images": 0,
+  "text": "sources/contaxt/공지사항/19. 필수과목 '창의과제' 8월 25일 (화) 전체 오리엔테이션 안내/필수과목 '창의과제' 8월 25일 (화) 전체 오리엔테이션 안내.txt.md"
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/2주차 제안서_A04 메가트론.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 7734297,
+  "chars": 133,
+  "images": 225,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/2주차 제안서_A04 메가트론.pptx.md",
+  "extracted_images": 225
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[A02].pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 2470519,
+  "chars": 8286,
+  "images": 2,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[A02].pptx.md",
+  "extracted_images": 2
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[A07현관똑똑]창의과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 5495288,
+  "chars": 2986,
+  "images": 98,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[A07현관똑똑]창의과제 제안서.pptx.md",
+  "extracted_images": 98
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[A08로봇야호] 창의과제 2주차 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 1027827,
+  "chars": 1872,
+  "images": 1,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[A08로봇야호] 창의과제 2주차 제안서.pptx.md",
+  "extracted_images": 1
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[A09비성경]창의과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 1603557,
+  "chars": 1945,
+  "images": 0,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[A09비성경]창의과제 제안서.pptx.md"
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[B05 이지스] 창의과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 29254159,
+  "chars": 3002,
+  "images": 0,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[B05 이지스] 창의과제 제안서.pptx.md"
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[B09찬태현] 창의과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 2465812,
+  "chars": 2197,
+  "images": 3,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[B09찬태현] 창의과제 제안서.pptx.md",
+  "extracted_images": 3
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[B10겉절이들] 창의과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 609871,
+  "chars": 1653,
+  "images": 8,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[B10겉절이들] 창의과제 제안서.pptx.md",
+  "extracted_images": 8
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[C01노력은배신안해] 창의과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 3251778,
+  "chars": 719,
+  "images": 8,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[C01노력은배신안해] 창의과제 제안서.pptx.md",
+  "extracted_images": 8
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[C02독고다이] 창의과제 제안서",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 7777742,
+  "chars": 1806,
+  "images": 60,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[C02독고다이] 창의과제 제안서.md",
+  "extracted_images": 60
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[C04_비문학] 창의과제 제안서 (2).pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 8632387,
+  "chars": 185,
+  "images": 142,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[C04_비문학] 창의과제 제안서 (2).pptx.md",
+  "extracted_images": 142
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[과제] 제안서 제출 (~8.31).txt",
+  "category": "other_team_deck",
+  "type": ".txt",
+  "bytes": 624,
+  "chars": 285,
+  "images": 0,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/[과제] 제안서 제출 (~8.31).txt.md"
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/A05-오토놈(창의과제 제안서).pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 9891985,
+  "chars": 1188,
+  "images": 0,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/A05-오토놈(창의과제 제안서).pptx.md"
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/B03-똥휘(창의과제 제안서).pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 8065693,
+  "chars": 3175,
+  "images": 9,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/B03-똥휘(창의과제 제안서).pptx.md",
+  "extracted_images": 9
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/B04 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 5739773,
+  "chars": 2278,
+  "images": 81,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/B04 제안서.pptx.md",
+  "extracted_images": 81
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/B06 포맨 창의 과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 3773696,
+  "chars": 2564,
+  "images": 16,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/B06 포맨 창의 과제 제안서.pptx.md",
+  "extracted_images": 16
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/B08Zvezda 창의과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 52548725,
+  "chars": 2886,
+  "images": 50,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/B08Zvezda 창의과제 제안서.pptx.md",
+  "extracted_images": 50
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/C06 창의과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 4327243,
+  "chars": 1823,
+  "images": 93,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/C06 창의과제 제안서.pptx.md",
+  "extracted_images": 93
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/Presentation 1 (1).pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 1534224,
+  "chars": 588,
+  "images": 3,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/Presentation 1 (1).pptx.md",
+  "extracted_images": 3
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/기갑대_제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 4925457,
+  "chars": 934,
+  "images": 0,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/기갑대_제안서.pptx.md"
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/월-E 2주차2.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 3769701,
+  "chars": 666,
+  "images": 28,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/월-E 2주차2.pptx.md",
+  "extracted_images": 28
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/일잘하는프로 창의과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 1728480,
+  "chars": 113,
+  "images": 1,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/일잘하는프로 창의과제 제안서.pptx.md",
+  "extracted_images": 1
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/일취월장 2주차 제안서_최종.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 1430529,
+  "chars": 1968,
+  "images": 16,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/일취월장 2주차 제안서_최종.pptx.md",
+  "extracted_images": 16
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/창의과제 _ppt_텔레토비_정준현.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 2225831,
+  "chars": 814,
+  "images": 45,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/창의과제 _ppt_텔레토비_정준현.pptx.md",
+  "extracted_images": 45
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/창의과제 제안서(팀 로봇).pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 2117237,
+  "chars": 1192,
+  "images": 17,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/창의과제 제안서(팀 로봇).pptx.md",
+  "extracted_images": 17
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/창의과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 20087438,
+  "chars": 2535,
+  "images": 0,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/창의과제 제안서.pptx.md"
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/캡스톤 PPT(최종.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 7392310,
+  "chars": 1349,
+  "images": 83,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/캡스톤 PPT(최종.pptx.md",
+  "extracted_images": 83
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/캡스톤 디자인 제안서.pptx (1).pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 2015946,
+  "chars": 994,
+  "images": 0,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/캡스톤 디자인 제안서.pptx (1).pptx.md"
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/캡스톤 창의과제.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 804215,
+  "chars": 693,
+  "images": 1,
+  "text": "sources/contaxt/주제 별 학습 활동/2주차 (9.1) - 제안서 발표/[과제] 제안서 제출 (~8.31)/캡스톤 창의과제.pptx.md",
+  "extracted_images": 1
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/3주차 (98) - 수정 제안서 발표/[과제] 수정 제안서 제출 (~9.7)/[A07현관똑똑]창의과제 수정 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 4726153,
+  "chars": 1458,
+  "images": 93,
+  "text": "sources/contaxt/주제 별 학습 활동/3주차 (98) - 수정 제안서 발표/[과제] 수정 제안서 제출 (~9.7)/[A07현관똑똑]창의과제 수정 제안서.pptx.md",
+  "extracted_images": 93
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/3주차 (98) - 수정 제안서 발표/[과제] 수정 제안서 제출 (~9.7)/_게시글 목록 (1-3 페이지, 총 32개).txt",
+  "category": "other_team_deck",
+  "type": ".txt",
+  "bytes": 2292,
+  "chars": 1040,
+  "images": 0,
+  "text": "sources/contaxt/주제 별 학습 활동/3주차 (98) - 수정 제안서 발표/[과제] 수정 제안서 제출 (~9.7)/_게시글 목록 (1-3 페이지, 총 32개).txt.md"
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/3주차 (98) - 수정 제안서 발표/[과제] 수정 제안서 제출 (~9.7)/B03-똥휘(창의과제 2차제안서).pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 3570103,
+  "chars": 1345,
+  "images": 18,
+  "text": "sources/contaxt/주제 별 학습 활동/3주차 (98) - 수정 제안서 발표/[과제] 수정 제안서 제출 (~9.7)/B03-똥휘(창의과제 2차제안서).pptx.md",
+  "extracted_images": 18
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/3주차 (98) - 수정 제안서 발표/[과제] 수정 제안서 제출 (~9.7)/창의과제 제안서 fn.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 11955546,
+  "chars": 1549,
+  "images": 28,
+  "text": "sources/contaxt/주제 별 학습 활동/3주차 (98) - 수정 제안서 발표/[과제] 수정 제안서 제출 (~9.7)/창의과제 제안서 fn.pptx.md",
+  "extracted_images": 28
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/4주차 (915) - 마분지 모형 완성 및 회로 기초 테스트/[과제] 진행 상황 발표 자료 제출 (~9.14)/일잘하는프로 창의과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 1728480,
+  "chars": 113,
+  "images": 1,
+  "text": "sources/contaxt/주제 별 학습 활동/4주차 (915) - 마분지 모형 완성 및 회로 기초 테스트/[과제] 진행 상황 발표 자료 제출 (~9.14)/일잘하는프로 창의과제 제안서.pptx.md",
+  "extracted_images": 1
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/4주차 (915) - 마분지 모형 완성 및 회로 기초 테스트/[과제] 진행 상황 발표 자료 제출 (~9.14)/창의과제 제안서.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 12058592,
+  "chars": 1549,
+  "images": 27,
+  "text": "sources/contaxt/주제 별 학습 활동/4주차 (915) - 마분지 모형 완성 및 회로 기초 테스트/[과제] 진행 상황 발표 자료 제출 (~9.14)/창의과제 제안서.pptx.md",
+  "extracted_images": 27
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/5주차 (922) - 기구 설계 확정/[과제] 진행 상황 발표 자료 제출 (~9.21)/[A07현관똑똑]5주차 발표.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 14801603,
+  "chars": 440,
+  "images": 54,
+  "text": "sources/contaxt/주제 별 학습 활동/5주차 (922) - 기구 설계 확정/[과제] 진행 상황 발표 자료 제출 (~9.21)/[A07현관똑똑]5주차 발표.pptx.md",
+  "extracted_images": 54
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/5주차 (922) - 기구 설계 확정/[과제] 진행 상황 발표 자료 제출 (~9.21)/B02 대한민국 5주차 발표자료.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 11818741,
+  "chars": 225,
+  "images": 38,
+  "text": "sources/contaxt/주제 별 학습 활동/5주차 (922) - 기구 설계 확정/[과제] 진행 상황 발표 자료 제출 (~9.21)/B02 대한민국 5주차 발표자료.pptx.md",
+  "extracted_images": 38
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/6주차 (929) - 기구부 제작 시작, 회로부 테스트 완료/[A07현관똑똑]6주차 발표.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 22129903,
+  "chars": 589,
+  "images": 67,
+  "text": "sources/contaxt/주제 별 학습 활동/6주차 (929) - 기구부 제작 시작, 회로부 테스트 완료/[A07현관똑똑]6주차 발표.pptx.md",
+  "extracted_images": 67
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/6주차 (929) - 기구부 제작 시작, 회로부 테스트 완료/[C03.로봇] 창의과제 6주차 발표 자료.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 20276019,
+  "chars": 296,
+  "images": 6,
+  "text": "sources/contaxt/주제 별 학습 활동/6주차 (929) - 기구부 제작 시작, 회로부 테스트 완료/[C03.로봇] 창의과제 6주차 발표 자료.pptx.md",
+  "extracted_images": 6
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/6주차 (929) - 기구부 제작 시작, 회로부 테스트 완료/늙크크_웨이퍼이송로봇_발표자료.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 6560526,
+  "chars": 162,
+  "images": 3,
+  "text": "sources/contaxt/주제 별 학습 활동/6주차 (929) - 기구부 제작 시작, 회로부 테스트 완료/늙크크_웨이퍼이송로봇_발표자료.pptx.md",
+  "extracted_images": 3
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/7주차 (1013) - 기구부 가공 완료, 회로부 설계 완료, 동작 알고리즘 확정_중간발표/[과제] 중간 보고 자료 제출 (~1012)/[A07현관똑똑]창의과제 중간 발표 자료.pptx",
+  "category": "other_team_deck",
+  "type": ".pptx",
+  "bytes": 7721341,
+  "chars": 494,
+  "images": 40,
+  "text": "sources/contaxt/주제 별 학습 활동/7주차 (1013) - 기구부 가공 완료, 회로부 설계 완료, 동작 알고리즘 확정_중간발표/[과제] 중간 보고 자료 제출 (~1012)/[A07현관똑똑]창의과제 중간 발표 자료.pptx.md",
+  "extracted_images": 40
+ },
+ {
+  "source": "contaxt/주제 별 학습 활동/_주차별 개요.txt",
+  "category": "other_team_deck",
+  "type": ".txt",
+  "bytes": 2216,
+  "chars": 1158,
+  "images": 0,
+  "text": "sources/contaxt/주제 별 학습 활동/_주차별 개요.txt.md"
+ },
+ {
+  "source": "README.md",
+  "category": "misc",
+  "type": ".md",
+  "bytes": 45,
+  "chars": 19,
+  "images": 0,
+  "text": "sources/README.md.md"
+ }
+]

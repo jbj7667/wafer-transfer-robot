@@ -1,0 +1,20 @@
+== L 190 {'T': (40, -50), 'stow': (30, 96), 'mbr': 45, 'mb': 70, 'sb': 150} unplaced []
+STOW bbox X -91.7..155.0 (246.7) Y -122.0..123.7 (245.7) Z 0..245.0 margins X 3.3 Y 4.3 Z 5.0
+STOW min clearance arm vs body/mast 3.0 ('fork1', 'mastrod2')
+REACH b5 th 73.4 R 386.0 Rw 322.0 phi 32.1 sing_margin 58.0 dz 0 slot-neck off 0.00 clr_bases 10.0('fork0', 'base5_CD') clr_body 4.0('car_plate_m', 'Zstepper') coll [] fieldy_min 54.6 elbow_y(290.7)
+   CoM (12,13) M 2831g tip margin 59.1
+REACH b6 th -73.4 R 386.0 Rw 322.0 phi 32.1 sing_margin 58.0 dz 0 slot-neck off 0.00 clr_bases 10.0('fork0', 'base6_CD') clr_body 4.0('car_plate_m', 'Zstepper') coll [] fieldy_min 54.6 elbow_y(97.3)
+   CoM (28,-36) M 2831g tip margin 47.9
+REACH b3 th 101.5 R 326.5 Rw 262.5 phi 46.3 sing_margin 117.5 dz 25 slot-neck off 0.00 clr_bases 10.0('fork0', 'base3_CD') clr_body 5.3('TH_stepper', 'L298') coll [] fieldy_min 180.6 elbow_y(400.8)
+   CoM (-1,5) M 2831g tip margin 53.7
+REACH b4 th -101.5 R 326.5 Rw 262.5 phi 46.3 sing_margin 117.5 dz 25 slot-neck off 0.00 clr_bases 10.0('fork0', 'base4_CD') clr_body 5.3('TH_stepper', 'L298') coll [] fieldy_min 111.5 elbow_y(131.5)
+   CoM (18,-37) M 2831g tip margin 48.7
+REACH b1 th 131.6 R 361.2 Rw 297.2 phi 38.5 sing_margin 82.8 dz 25 slot-neck off 0.00 clr_bases 10.0('fork0', 'base1_CD') clr_body 5.3('TH_stepper', 'L298') coll [] fieldy_min 180.6 elbow_y(427.2)
+   CoM (-10,-2) M 2831g tip margin 49.1
+REACH b2 th -131.6 R 361.2 Rw 297.2 phi 38.5 sing_margin 82.8 dz 25 slot-neck off 0.00 clr_bases 10.0('fork0', 'base2_CD') clr_body 5.3('TH_stepper', 'L298') coll [] fieldy_min 180.6 elbow_y(250.1)
+   CoM (4,-38) M 2831g tip margin 36.8
+REACH min field y 54.6
+SWING row top 175 th 73.4->286.6: min clearance 5.3 at th 73 pair ('TH_stepper', 'L298') (bases 36.1 body 5.3)
+SWING row top 200 th 101.5->258.5: min clearance 7.5 at th 102 pair ('turntable', 'mastrod1') (bases 9.9 body 7.5)
+SWING row top 200 th 131.6->228.4: min clearance 7.5 at th 132 pair ('turntable', 'mastrod1') (bases 30.3 body 7.5)
+SWING overall min clearance 5.3 ; min field y 31.3 ; min tip margin 41.2

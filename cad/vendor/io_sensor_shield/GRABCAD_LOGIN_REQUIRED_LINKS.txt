@@ -1,0 +1,2 @@
+No anonymous source found. Download manually after GrabCAD login:
+https://grabcad.com/library/arduino-mega-sensor-shield-1  (Arduino mega sensor shield, Yvon Quemener, STEP/IGES)

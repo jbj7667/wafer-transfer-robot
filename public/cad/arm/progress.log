@@ -1,0 +1,10 @@
+02:23:40 lib_arm.py written (geometry helpers)
+09:58:20 stow search (python, local): arm fits in 244 plate for L180/190; refining central T (stow2.py). Fusion doc not yet created
+10:00:33 stow candidates: L180 T=(22,-38) th_stow=303 phi=109 s=+1 motor180 thstepper+90 (margin~3.4); L190 T=(28,54) th=210 phi=94 s=+1 mot90 sb-90 (margin~3.0). next: checks.py reach/swing
+10:05:44 swing finding: mast at bearing 0 collides with R-motor/links in swing; mast bearing +45deg, Rmotor bearing +40/+70 gives min clr 7.5 (turntable-rod). re-running stow with these
+10:06:30 final stow choice: L180 T=(-8,2) th_stow216 phi108 s+1 mast_bear45 Rmotor40 TH_stepper bearing0; L190 T=(40,-50) th30 phi96 s+1 mast45 Rmotor70 TH sb90. next: final.py (all checks)
+10:06:40 final.py run both L; result_L*.txt
+10:07:09 L190 sb=150 fix (stepper vs wheel). Python-side checks done; next Fusion build
+10:08:10 Fusion: new doc created (direct design, untitled). next: build parts from model_L*.json
+10:08:59 Fusion: L180 and L190 parts built (7 comps each). next: pose via transform2, bbox, screenshots, save
+10:11:16 DONE: saved wafer_robot_arm_v0, README.md, screenshots
