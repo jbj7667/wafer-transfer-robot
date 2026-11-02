@@ -1,0 +1,4 @@
+No anonymous source found. Download manually after GrabCAD login:
+https://grabcad.com/library/hm-10-bluetooth-module-1  (HM-10 bluetooth module, STEP + Inventor)
+https://grabcad.com/library/hm10-1  (HM10, STEP)
+https://grabcad.com/library/bluetooth-module-hm-10-for-arduino-master-slave-1  (Inventor 2016 only)

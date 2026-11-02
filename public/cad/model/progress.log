@@ -1,0 +1,6 @@
+params created in new doc (first doc was part-design, single component only; used new Design doc 제목 없음 1)
+built P01 deck1, P02 deck2, P03 wheels, P04 motors, P05 caster, P06 batteries, P07 standoffs (helper _helper.py)
+built P08 mega,P09 l298,P10 stepper+coupler,P11 leadscrew,P12 rods,P13 topblock,P14 carriage,P15 fork,P16 linesensor,P17 sonar,P18 ir
+REF_base, REF_envelope, checks, screenshots, STL (19) done; saveAs failed (id.size()); README written
+v1.1: deleted P01,P02,P05..P08,P10..P18,REF_base; rebuilt with params v1.1/v1.1b (batteries rotated Y-long X-93..-35, deck1 rear Y+-92, sonar Y-46, standoffs moved, carriage 150..180 w/ 1 LM8UU per rod, nut 14 tall, fork slot X61..157, new P19 neck switch, IR X52)
+v1.1: REF_envelope shifted +7 X (-93..157); checks run (all clear); STL re-exported (20 files); saveAs v1_1 failed again (id.size())

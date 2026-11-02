@@ -1,0 +1,206 @@
+[
+ {
+  "name": "P01_base",
+  "stl": "P01_base.stl",
+  "orient": "바닥 면 평평",
+  "bbox": [
+   200.0,
+   190.0,
+   17.0
+  ],
+  "vol": 194.82,
+  "g": 84.6
+ },
+ {
+  "name": "P02_foot",
+  "stl": "P02_foot_x4.stl",
+  "orient": "뒤집어(뚜껑면 베드, 열린 쪽 위)",
+  "bbox": [
+   36.0,
+   36.0,
+   38.0
+  ],
+  "vol": 22.56,
+  "g": 9.8
+ },
+ {
+  "name": "P03_turntable",
+  "stl": "P03_turntable.stl",
+  "orient": "바닥 면 평평",
+  "bbox": [
+   185.0,
+   68.0,
+   6.0
+  ],
+  "vol": 70.59,
+  "g": 30.6
+ },
+ {
+  "name": "P04_theta_hub60",
+  "stl": "P04_theta_hub60.stl",
+  "orient": "60T 플랜지 면 베드, 관 위로",
+  "bbox": [
+   41.2,
+   41.2,
+   45.0
+  ],
+  "vol": 19.8,
+  "g": 8.6
+ },
+ {
+  "name": "P05_shoulder_hub60",
+  "stl": "P05_shoulder_hub60.stl",
+  "orient": "60T 플랜지 면 베드",
+  "bbox": [
+   41.2,
+   41.2,
+   24.0
+  ],
+  "vol": 17.19,
+  "g": 7.5
+ },
+ {
+  "name": "P06_pulley52_hub",
+  "stl": "P06_pulley52_hub_x2.stl",
+  "orient": "52T 플랜지 면 베드, 목 위로",
+  "bbox": [
+   36.1,
+   36.1,
+   25.0
+  ],
+  "vol": 8.78,
+  "g": 3.8
+ },
+ {
+  "name": "P07_pulley26_hub",
+  "stl": "P07_pulley26_hub.stl",
+  "orient": "26T 플랜지 면 베드",
+  "bbox": [
+   19.6,
+   19.6,
+   25.0
+  ],
+  "vol": 3.7,
+  "g": 1.6
+ },
+ {
+  "name": "P08_elbow_hub26",
+  "stl": "P08_elbow_hub26.stl",
+  "orient": "26T 플랜지 면 베드, 허브 위로(포켓 위)",
+  "bbox": [
+   30.0,
+   30.0,
+   27.5
+  ],
+  "vol": 6.78,
+  "g": 2.9
+ },
+ {
+  "name": "P09_pulley20_D5",
+  "stl": "P09_pulley20_D5_x2.stl",
+  "orient": "20T 플랜지 면 베드",
+  "bbox": [
+   16.0,
+   16.0,
+   18.0
+  ],
+  "vol": 2.61,
+  "g": 1.1
+ },
+ {
+  "name": "P10_link1_box",
+  "stl": "P10_link1_box.stl",
+  "orient": "바닥 면 평평(개방면 위)",
+  "bbox": [
+   216.0,
+   44.0,
+   18.0
+  ],
+  "vol": 44.45,
+  "g": 19.3
+ },
+ {
+  "name": "P11_link1_lid",
+  "stl": "P11_link1_lid.stl",
+  "orient": "평평",
+  "bbox": [
+   216.0,
+   44.0,
+   2.0
+  ],
+  "vol": 14.16,
+  "g": 6.1
+ },
+ {
+  "name": "P12_link2_box",
+  "stl": "P12_link2_box.stl",
+  "orient": "바닥 면 평평(개방면 위)",
+  "bbox": [
+   221.0,
+   44.0,
+   18.0
+  ],
+  "vol": 44.76,
+  "g": 19.4
+ },
+ {
+  "name": "P13_link2_lid",
+  "stl": "P13_link2_lid.stl",
+  "orient": "평평",
+  "bbox": [
+   221.0,
+   44.0,
+   2.0
+  ],
+  "vol": 16.47,
+  "g": 7.1
+ },
+ {
+  "name": "P14_pointer",
+  "stl": "P14_pointer.stl",
+  "orient": "바닥 면 평평, 펜 링 위로",
+  "bbox": [
+   88.0,
+   24.0,
+   34.0
+  ],
+  "vol": 19.8,
+  "g": 8.6
+ },
+ {
+  "name": "P15_idler",
+  "stl": "P15_idler_x2.stl",
+  "orient": "판 면 베드, 기둥 위로",
+  "bbox": [
+   26.0,
+   14.0,
+   14.0
+  ],
+  "vol": 1.86,
+  "g": 0.8
+ },
+ {
+  "name": "P16_belt_clamp",
+  "stl": "P16_belt_clamp_x2.stl",
+  "orient": "평평(홈 면 위)",
+  "bbox": [
+   26.0,
+   14.0,
+   8.0
+  ],
+  "vol": 2.66,
+  "g": 1.2
+ },
+ {
+  "name": "P17_fork_stub",
+  "stl": "P17_fork_stub.stl",
+  "orient": "평평 (선택)",
+  "bbox": [
+   76.0,
+   102.0,
+   8.0
+  ],
+  "vol": 29.71,
+  "g": 12.9
+ }
+]

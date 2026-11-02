@@ -1,0 +1,9 @@
+2026-10-29 설계 일지 영상 (build_20261029.py)
+실행: python -I tools\video\build_20261029.py  (ffmpeg/ffprobe PATH 필요)
+입력: frames\20261029\*.jpg (1600x450 = 모니터 2대 가로 연결, 왼쪽 800x450만 크롭 후 1920x1080 확대),
+      public\cad\assembly\renders\ (build_anim.mp4/.srt, exploded, lift_anim.gif, lift_*_iso, view_iso)
+출력: out\final_20261029_design.mp4 (1080p30 H.264 무음, 157초, 자막 미번인)
+      out\final_20261029_design.srt (별도 자막, 32개), 임시 클립 out\work_1029\
+구성: 타이틀5s | 실측값 22s(22:13-22:40) | 코드 생성 18s(22:40-23:00) | 승강부 22s(23:00-23:20)
+      | 레드팀 14s(23:20-23:24) | 조립 시뮬 50s | 분해도 4s | 승강 8s+3+3 | iso 3s | 엔딩 5s
+타임랩스 구간 경계/길이는 스크립트의 TL 목록에서 수정. 클립 간 페이드 0.4초.

@@ -1,0 +1,16 @@
+# 원본 강의 자료(대용량 PPTX/PDF/HWP, 타 팀 자료, 학생 개인정보 포함) — 로컬 보관만
+contaxt/
+
+# 작업 worktree
+.claude/
+
+# 빌드/임시 산출물
+*.bak
+*.tmp
+__pycache__/
+firmware/**/build/
+cad/**/*.f3d.bak
+
+# 조립 애니메이션 프레임(대용량, mp4/gif로 대체)
+public/cad/assembly/renders/build_anim/
+public/cad/assembly/renders/lift_anim/
